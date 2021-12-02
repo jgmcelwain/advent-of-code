@@ -1,4 +1,5 @@
 import { getInput } from '../../lib/getInput';
+
 import { calculateDepthIncreases } from './calculateDepthIncreases';
 import { calculateWindowSumIncreases } from './calculateWindowSumIncreases';
 
@@ -23,9 +24,11 @@ async function main() {
     .split('\n')
     .map((entry): DepthEntry => Number(entry));
 
-  console.log('Sonar Sweep');
+  console.log('Day 01 - Sonar Sweep');
   partOne(depthReport);
   partTwo(depthReport);
 }
 
-main();
+if (process.argv.includes('run')) {
+  main();
+}

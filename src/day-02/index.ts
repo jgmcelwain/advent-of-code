@@ -38,9 +38,11 @@ async function main() {
       return { direction, amount: Number(amount) };
     });
 
-  console.log('Dive!');
+  console.log('Day 02 - Dive!');
   partOne(instructions);
   partTwo(instructions);
 }
 
-main();
+if (process.argv.includes('run')) {
+  main();
+}
