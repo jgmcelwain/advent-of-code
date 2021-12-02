@@ -6,6 +6,10 @@
   "repository": "https://github.com/jgmcelwain/advent-of-code-2021",
   "author": "Jamie McElwain <jmie@hey.com>",
   "license": "MIT",
+  "scripts": {
+    "test": "jest",
+    "solution": "runSolution(){ ts-node \"src/day-$1/index.ts\" ;};runSolution"
+  },
   "devDependencies": {
     "@types/jest": "^27.0.3",
     "@types/node": "^16.11.11",
