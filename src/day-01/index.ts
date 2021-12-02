@@ -23,6 +23,7 @@ async function main() {
     .split('\n')
     .map((entry): DepthEntry => Number(entry));
 
+  console.log('Sonar Sweep');
   partOne(depthReport);
   partTwo(depthReport);
 }

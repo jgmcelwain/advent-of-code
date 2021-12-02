@@ -38,6 +38,7 @@ async function main() {
       return { direction, amount: Number(amount) };
     });
 
+  console.log('Dive!');
   partOne(instructions);
   partTwo(instructions);
 }
