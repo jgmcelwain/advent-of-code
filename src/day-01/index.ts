@@ -1,20 +1,30 @@
 import { getInput } from '../../lib/getInput';
 import { calculateDepthIncreases } from './calculateDepthIncreases';
+import { calculateWindowSumIncreases } from './calculateWindowSumIncreases';
 
-function partOne(input: string) {
-  const depthReport = input
-    .trim()
-    .split('\n')
-    .map((entry) => Number(entry));
+export type DepthEntry = number;
+export type DepthReport = DepthEntry[];
 
+function partOne(depthReport: DepthReport) {
   const result = calculateDepthIncreases(depthReport);
-  console.log('Part 1: ', result);
+  console.log('Part One: ', result);
+}
+
+function partTwo(depthReport: DepthReport) {
+  const result = calculateWindowSumIncreases(depthReport);
+  console.log('Part Two: ', result);
 }
 
 async function main() {
   const input = await getInput(__dirname);
 
-  partOne(input);
+  const depthReport: DepthReport = input
+    .trim()
+    .split('\n')
+    .map((entry): DepthEntry => Number(entry));
+
+  partOne(depthReport);
+  partTwo(depthReport);
 }
 
 main();
