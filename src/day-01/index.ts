@@ -19,10 +19,9 @@ function partTwo(depthReport: DepthReport) {
 async function main() {
   const input = await getInput(__dirname);
 
-  const depthReport: DepthReport = input
-    .trim()
-    .split('\n')
-    .map((entry): DepthEntry => Number(entry));
+  const depthReport: DepthReport = input.map(
+    (entry): DepthEntry => Number(entry),
+  );
 
   console.log('Day 01 - Sonar Sweep');
   partOne(depthReport);

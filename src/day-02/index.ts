@@ -29,14 +29,11 @@ function partTwo(instructions: Instruction[]) {
 
 async function main() {
   const input = await getInput(__dirname);
-  const instructions: Instruction[] = input
-    .trim()
-    .split('\n')
-    .map((line) => {
-      const [direction, amount] = line.split(' ') as [Direction, string];
+  const instructions: Instruction[] = input.map((line) => {
+    const [direction, amount] = line.split(' ') as [Direction, string];
 
-      return { direction, amount: Number(amount) };
-    });
+    return { direction, amount: Number(amount) };
+  });
 
   console.log('Day 02 - Dive!');
   partOne(instructions);

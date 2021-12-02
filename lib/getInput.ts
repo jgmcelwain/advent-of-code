@@ -1,8 +1,10 @@
 import { readFile } from 'fs/promises';
 import path from 'path';
 
-export function getInput(dirname: string) {
-  return readFile(path.join(dirname, 'input.txt'), {
+export async function getInput(dirname: string) {
+  const result = await readFile(path.join(dirname, 'input.txt'), {
     encoding: 'utf-8',
   });
+
+  return result.trim().split('\n');
 }
