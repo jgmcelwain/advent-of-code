@@ -1,4 +1,5 @@
 import { Direction } from '.';
+import { mutatePositionWithDirection } from './mutatePositionWithDirection';
 
 export function getSantaAndRobotHouseVisits(directions: Direction[]) {
   const santaPosition = { x: 0, y: 0 };
@@ -9,10 +10,7 @@ export function getSantaAndRobotHouseVisits(directions: Direction[]) {
   for (let i = 0; i < directions.length; i++) {
     const activeSantaPosition = i % 2 === 0 ? santaPosition : roboSantaPosition;
 
-    if (directions[i] === Direction.North) activeSantaPosition.y--;
-    if (directions[i] === Direction.South) activeSantaPosition.y++;
-    if (directions[i] === Direction.East) activeSantaPosition.x++;
-    if (directions[i] === Direction.West) activeSantaPosition.x--;
+    mutatePositionWithDirection(activeSantaPosition, directions[i]);
 
     const currentHouseKey = `${activeSantaPosition.x}:${activeSantaPosition.y}`;
     if (houseVisitCounts[currentHouseKey] === undefined) {
