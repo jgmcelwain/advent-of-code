@@ -30,12 +30,12 @@ $ yarn
 $ yarn test
 
 # runs jest test suite for a given day
-$ yarn test day-01
+$ yarn test 2021/day-01
 ```
 
 ### Solutions
 
 ```bash
 # runs the solution for a given day
-$ yarn solution day-01
+$ yarn solution 2021/day-01
 ```
