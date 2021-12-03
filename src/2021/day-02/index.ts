@@ -29,7 +29,7 @@ function partTwo(instructions: Instruction[]) {
 
 async function main() {
   const input = await getInput(__dirname);
-  const instructions: Instruction[] = input.map((line) => {
+  const instructions: Instruction[] = input.split('\n').map((line) => {
     const [direction, amount] = line.split(' ') as [Direction, string];
 
     return { direction, amount: Number(amount) };

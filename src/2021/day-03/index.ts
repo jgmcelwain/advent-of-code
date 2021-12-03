@@ -18,10 +18,11 @@ function partTwo(diagnosticReport: DiagnosticReport) {
 
 async function main() {
   const input = await getInput(__dirname);
+  const diagnosticReport: DiagnosticReport = input.split('\n');
 
   console.log('AoC 2021 - Day 03: Binary Diagnostic');
-  partOne(input);
-  partTwo(input);
+  partOne(diagnosticReport);
+  partTwo(diagnosticReport);
 }
 
 if (process.argv.includes('run')) {

@@ -6,5 +6,5 @@ export async function getInput(dirname: string) {
     encoding: 'utf-8',
   });
 
-  return result.trim().split('\n');
+  return result.trim();
 }
