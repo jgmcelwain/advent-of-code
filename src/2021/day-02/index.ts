@@ -1,4 +1,4 @@
-import { getInput } from '../../lib/getInput';
+import { getInput } from '../../../lib/getInput';
 
 import { getPositionAfterCourse } from './getPositionAfterCourse';
 import { getPositionAfterAimCourse } from './getPositionAfterAimCourse';
@@ -35,7 +35,7 @@ async function main() {
     return { direction, amount: Number(amount) };
   });
 
-  console.log('Day 02 - Dive!');
+  console.log('AoC 2021 - Day 02: Dive!');
   partOne(instructions);
   partTwo(instructions);
 }

@@ -1,4 +1,4 @@
-import { getInput } from '../../lib/getInput';
+import { getInput } from '../../../lib/getInput';
 
 import { calculateDepthIncreases } from './calculateDepthIncreases';
 import { calculateWindowSumIncreases } from './calculateWindowSumIncreases';
@@ -23,7 +23,7 @@ async function main() {
     (entry): DepthEntry => Number(entry),
   );
 
-  console.log('Day 01 - Sonar Sweep');
+  console.log('AoC 2021 - Day 01: Sonar Sweep');
   partOne(depthReport);
   partTwo(depthReport);
 }

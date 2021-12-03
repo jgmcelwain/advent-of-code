@@ -1,6 +1,6 @@
-import type { DiagnosticReport } from '../src/day-03';
-import { getLifeSupportRating } from '../src/day-03/getLifeSupportRating';
-import { getPowerConsumption } from '../src/day-03/getPowerConsumption';
+import type { DiagnosticReport } from '.';
+import { getLifeSupportRating } from './getLifeSupportRating';
+import { getPowerConsumption } from './getPowerConsumption';
 
 const exampleDiagnosticReport: DiagnosticReport = [
   '00100',

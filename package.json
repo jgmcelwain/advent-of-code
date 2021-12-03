@@ -8,7 +8,7 @@
   "license": "MIT",
   "scripts": {
     "test": "jest",
-    "solution": "runSolution(){ ts-node \"src/day-$1/index.ts\" run ;};runSolution"
+    "solution": "runSolution(){ ts-node \"src/2021/$1/index.ts\" run ;};runSolution"
   },
   "devDependencies": {
     "@tsconfig/recommended": "^1.0.1",

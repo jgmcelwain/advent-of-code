@@ -1,4 +1,4 @@
-import { getInput } from '../../lib/getInput';
+import { getInput } from '../../../lib/getInput';
 import { getLifeSupportRating } from './getLifeSupportRating';
 import { getPowerConsumption } from './getPowerConsumption';
 
@@ -19,7 +19,7 @@ function partTwo(diagnosticReport: DiagnosticReport) {
 async function main() {
   const input = await getInput(__dirname);
 
-  console.log('Day 03 - Binary Diagnostic');
+  console.log('AoC 2021 - Day 03: Binary Diagnostic');
   partOne(input);
   partTwo(input);
 }

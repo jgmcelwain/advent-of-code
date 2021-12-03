@@ -1,8 +1,8 @@
-import type { Instruction } from '../src/day-02';
-import { Direction } from '../src/day-02';
+import type { Instruction } from '.';
+import { Direction } from '.';
 
-import { getPositionAfterCourse } from '../src/day-02/getPositionAfterCourse';
-import { getPositionAfterAimCourse } from '../src/day-02/getPositionAfterAimCourse';
+import { getPositionAfterCourse } from './getPositionAfterCourse';
+import { getPositionAfterAimCourse } from './getPositionAfterAimCourse';
 
 const exampleInstructions: Instruction[] = [
   { direction: Direction.Forward, amount: 5 },

@@ -1,6 +1,6 @@
-import type { DepthReport } from '../src/day-01';
-import { calculateDepthIncreases } from '../src/day-01/calculateDepthIncreases';
-import { calculateWindowSumIncreases } from '../src/day-01/calculateWindowSumIncreases';
+import type { DepthReport } from '.';
+import { calculateDepthIncreases } from './calculateDepthIncreases';
+import { calculateWindowSumIncreases } from './calculateWindowSumIncreases';
 
 const exampleDepthReport: DepthReport = [
   199, 200, 208, 210, 200, 207, 240, 269, 260, 263,
