@@ -1,20 +1,18 @@
-import type { DiagnosticReport } from '.';
+import type { DiagnosticReport, BitValue, BitCount } from '.';
 
 function getMostCommonBitAtIndex(
   diagnosticReport: DiagnosticReport,
   bitIndex: number,
-): '0' | '1' {
-  const indexBitCounts: { zero: number; one: number } = { zero: 0, one: 0 };
+): BitValue {
+  const bitCountAtIndex: BitCount = { 0: 0, 1: 0 };
 
   for (let i = 0; i < diagnosticReport.length; i++) {
-    if (diagnosticReport[i][bitIndex] === '1') {
-      indexBitCounts.one++;
-    } else {
-      indexBitCounts.zero++;
-    }
+    const value = diagnosticReport[i][bitIndex] as BitValue;
+
+    bitCountAtIndex[value]++;
   }
 
-  return indexBitCounts.zero > indexBitCounts.one ? '0' : '1';
+  return bitCountAtIndex[0] > bitCountAtIndex[1] ? '0' : '1';
 }
 
 function getRating(

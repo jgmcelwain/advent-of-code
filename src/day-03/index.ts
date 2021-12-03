@@ -3,6 +3,8 @@ import { getLifeSupportRating } from './getLifeSupportRating';
 import { getPowerConsumption } from './getPowerConsumption';
 
 export type DiagnosticReport = string[];
+export type BitValue = '0' | '1';
+export type BitCount = { [K in BitValue]: number };
 
 function partOne(diagnosticReport: DiagnosticReport) {
   const result = getPowerConsumption(diagnosticReport);
