@@ -8,7 +8,7 @@ function partOne(secretKey: string) {
 
 function partTwo(secretKey: string) {
   const result = findMD5LeadingZeroGeneratingInt(secretKey, 6);
-  console.log('Part One: ', result);
+  console.log('Part Two: ', result);
 }
 
 async function main() {

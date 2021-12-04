@@ -17,7 +17,7 @@ function partOne(directions: Direction[]) {
 
 function partTwo(directions: Direction[]) {
   const result = getSantaAndRobotHouseVisits(directions);
-  console.log('Part One: ', result);
+  console.log('Part Two: ', result);
 }
 
 async function main() {
