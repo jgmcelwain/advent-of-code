@@ -6,7 +6,7 @@ import { hasBoardWon } from './hasBoardWon';
 import { updateBoard } from './updateBoard';
 
 test('updateBoard', () => {
-  const board: Board = [
+  const boardToUpdate: Board = [
     [22, 13, 17, 11, 0],
     [8, 2, 23, 4, 24],
     [21, 9, 14, 16, 7],
@@ -14,9 +14,13 @@ test('updateBoard', () => {
     [1, 12, 20, 15, 19],
   ];
 
-  updateBoard(board, 14);
+  updateBoard(boardToUpdate, 14);
 
-  expect(board[2]).toContain(-1);
+  expect(boardToUpdate[0]).toEqual([22, 13, 17, 11, 0]);
+  expect(boardToUpdate[1]).toEqual([8, 2, 23, 4, 24]);
+  expect(boardToUpdate[2]).toContain(-1);
+  expect(boardToUpdate[3]).toEqual([6, 10, 3, 18, 5]);
+  expect(boardToUpdate[4]).toEqual([1, 12, 20, 15, 19]);
 });
 
 test('hasBoardWon', () => {
@@ -82,20 +86,20 @@ const winTestBoards: Board[] = [
     [2, 0, 12, 3, 7],
   ],
 ];
-const calledNumbers = [
+const winTestCalledNumbers = [
   7, 4, 9, 5, 11, 17, 23, 2, 0, 14, 21, 24, 10, 16, 13, 6, 15, 25, 12, 22, 18,
   20, 8, 19, 3, 26, 1,
 ];
 
 test('getWinner', () => {
-  expect(getWinner(winTestBoards, calledNumbers)).toEqual([
+  expect(getWinner(winTestBoards, winTestCalledNumbers)).toEqual([
     winTestBoards[2],
     24,
   ]);
 });
 
 test('getFinalWinner', () => {
-  expect(getFinalWinner(winTestBoards, calledNumbers)).toEqual([
+  expect(getFinalWinner(winTestBoards, winTestCalledNumbers)).toEqual([
     winTestBoards[1],
     13,
   ]);
