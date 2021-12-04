@@ -7,6 +7,10 @@ import { getWinner } from './getWinner';
 export type Board = BoardRow[];
 export type BoardRow = [number, number, number, number, number];
 
+export const BOARD_ROWS = 5;
+export const BOARD_COLS = 5;
+export const MARKED_NUMBER = -1;
+
 function partOne(calledNumbers: number[], boards: Board[]) {
   const [winningBoard, finalNumber] = getWinner(boards, calledNumbers);
 
