@@ -18,7 +18,7 @@ async function main() {
   const input = await getInput(__dirname);
   const fishClocks = input.split(',').map(Number);
 
-  console.log('AoC 2021 - Day 05: Lanternfish');
+  console.log('AoC 2021 - Day 06: Lanternfish');
   partOne(fishClocks);
   partTwo(fishClocks);
 }
