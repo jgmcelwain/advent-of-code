@@ -1,13 +1,13 @@
 # [Advent of Code 2021](https://adventofcode.com/)
 
-| Day | Puzzle                                                      | Solution                                                                               |
-| :-- | :---------------------------------------------------------- | :------------------------------------------------------------------------------------- |
-| 1   | [Sonar Sweep](https://adventofcode.com/2021/day/1)          | [`src/day-01`](https://github.com/jgmcelwain/advent-of-code-2021/tree/main/src/day-01) |
-| 2   | [Dive!](https://adventofcode.com/2021/day/2)                | [`src/day-02`](https://github.com/jgmcelwain/advent-of-code-2021/tree/main/src/day-02) |
-| 3   | [Binary Diagnostic](https://adventofcode.com/2021/day/3)    | [`src/day-03`](https://github.com/jgmcelwain/advent-of-code-2021/tree/main/src/day-03) |
-| 4   | [Giant Squid](https://adventofcode.com/2021/day/3)          | [`src/day-04`](https://github.com/jgmcelwain/advent-of-code-2021/tree/main/src/day-04) |
-| 5   | [Hydrothermal Venture](https://adventofcode.com/2021/day/3) | [`src/day-05`](https://github.com/jgmcelwain/advent-of-code-2021/tree/main/src/day-05) |
-| 6   | [Lanternfish](https://adventofcode.com/2021/day/3)          | [`src/day-06`](https://github.com/jgmcelwain/advent-of-code-2021/tree/main/src/day-06) |
+| Day | Puzzle                                                      | Solution                                                                                         |
+| :-- | :---------------------------------------------------------- | :----------------------------------------------------------------------------------------------- |
+| 1   | [Sonar Sweep](https://adventofcode.com/2021/day/1)          | [`src/2021/day-01`](https://github.com/jgmcelwain/advent-of-code-2021/tree/main/src/2021/day-01) |
+| 2   | [Dive!](https://adventofcode.com/2021/day/2)                | [`src/2021/day-02`](https://github.com/jgmcelwain/advent-of-code-2021/tree/main/src/2021/day-02) |
+| 3   | [Binary Diagnostic](https://adventofcode.com/2021/day/3)    | [`src/2021/day-03`](https://github.com/jgmcelwain/advent-of-code-2021/tree/main/src/2021/day-03) |
+| 4   | [Giant Squid](https://adventofcode.com/2021/day/3)          | [`src/2021/day-04`](https://github.com/jgmcelwain/advent-of-code-2021/tree/main/src/2021/day-04) |
+| 5   | [Hydrothermal Venture](https://adventofcode.com/2021/day/3) | [`src/2021/day-05`](https://github.com/jgmcelwain/advent-of-code-2021/tree/main/src/2021/day-05) |
+| 6   | [Lanternfish](https://adventofcode.com/2021/day/3)          | [`src/2021/day-06`](https://github.com/jgmcelwain/advent-of-code-2021/tree/main/src/2021/day-06) |
 
 ---
 
