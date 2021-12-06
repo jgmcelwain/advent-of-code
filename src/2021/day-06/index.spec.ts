@@ -1,8 +1,5 @@
+import { sumArray } from '../../../lib/sumArray';
 import { simulateFishPopulationGrowth } from './simulateFishPopulationGrowth';
-
-function sumArray(array: number[]) {
-  return array.reduce((acc, curr) => (acc += curr), 0);
-}
 
 const fish = [3, 4, 3, 1, 2];
 
