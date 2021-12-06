@@ -13,16 +13,20 @@ const exampleInstructions: Instruction[] = [
   { direction: Direction.Forward, amount: 2 },
 ];
 
-test('getPositionAfterCourse', () => {
-  expect(getPositionAfterCourse(exampleInstructions)).toEqual({
-    horizontal: 15,
-    depth: 10,
+describe('getPositionAfterCourse', () => {
+  it('calculates horizontal and vertical position', () => {
+    expect(getPositionAfterCourse(exampleInstructions)).toEqual({
+      horizontal: 15,
+      depth: 10,
+    });
   });
 });
 
-test('getPositionAfterAimCourse', () => {
-  expect(getPositionAfterAimCourse(exampleInstructions)).toEqual({
-    horizontal: 15,
-    depth: 60,
+describe('getPositionAfterAimCourse', () => {
+  it('calculates horizontal and vertical position', () => {
+    expect(getPositionAfterAimCourse(exampleInstructions)).toEqual({
+      horizontal: 15,
+      depth: 60,
+    });
   });
 });

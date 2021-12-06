@@ -1,5 +1,5 @@
 import type { DiagnosticReport } from '.';
-import { getLifeSupportRating } from './getLifeSupportRating';
+import { getLifeSupportRating, getRating } from './getLifeSupportRating';
 import { getPowerConsumption } from './getPowerConsumption';
 
 const exampleDiagnosticReport: DiagnosticReport = [
@@ -17,10 +17,24 @@ const exampleDiagnosticReport: DiagnosticReport = [
   '01010',
 ];
 
-test('getPowerConsumption', () => {
-  expect(getPowerConsumption(exampleDiagnosticReport)).toEqual(198);
+describe('getPowerConsumption', () => {
+  it('calculates power consumption', () => {
+    expect(getPowerConsumption(exampleDiagnosticReport)).toEqual(198);
+  });
 });
 
-test('getLifeSupportRating', () => {
-  expect(getLifeSupportRating(exampleDiagnosticReport)).toEqual(230);
+describe('getRating', () => {
+  it('calculates oxygen rating', () => {
+    expect(getRating('oxygen', exampleDiagnosticReport)).toEqual(23);
+  });
+
+  it('calculates co2 rating', () => {
+    expect(getRating('co2', exampleDiagnosticReport)).toEqual(10);
+  });
+});
+
+describe('getLifeSupportRating', () => {
+  it('combines co2 and oxygen ratings', () => {
+    expect(getLifeSupportRating(exampleDiagnosticReport)).toEqual(230);
+  });
 });

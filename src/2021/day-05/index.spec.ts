@@ -14,17 +14,20 @@ const exampleLines: Line[] = [
   { start: { x: 5, y: 5 }, end: { x: 8, y: 2 }, kind: 2 },
 ];
 
-test('getPositionTraversedCounts', () => {
-  expect(
-    getPositionTraversedCounts(exampleLines)
-      .flat(2)
-      .filter((n) => n > 1).length,
-  ).toBe(5);
-});
-test('getPositionTraversedCounts', () => {
-  expect(
-    getPositionTraversedCounts(exampleLines, true)
-      .flat(2)
-      .filter((n) => n > 1).length,
-  ).toBe(12);
+describe('getPositionTraversedCounts', () => {
+  it('works with horizontal and vertical lines', () => {
+    expect(
+      getPositionTraversedCounts(exampleLines)
+        .flat(2)
+        .filter((n) => n > 1).length,
+    ).toBe(5);
+  });
+
+  test('works with diagonal lines', () => {
+    expect(
+      getPositionTraversedCounts(exampleLines, true)
+        .flat(2)
+        .filter((n) => n > 1).length,
+    ).toBe(12);
+  });
 });

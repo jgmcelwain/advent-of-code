@@ -15,7 +15,7 @@ function getMostCommonBitAtIndex(
   return bitCountAtIndex[0] > bitCountAtIndex[1] ? '0' : '1';
 }
 
-function getRating(
+export function getRating(
   kind: 'oxygen' | 'co2',
   diagnosticReport: DiagnosticReport,
   currentBitIndex = 0,

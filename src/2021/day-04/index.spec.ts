@@ -5,7 +5,7 @@ import { getWinner } from './getWinner';
 import { hasBoardWon } from './hasBoardWon';
 import { updateBoard } from './updateBoard';
 
-test('updateBoard', () => {
+describe('updateBoard', () => {
   const boardToUpdate: Board = [
     [22, 13, 17, 11, 0],
     [8, 2, 23, 4, 24],
@@ -16,14 +16,19 @@ test('updateBoard', () => {
 
   updateBoard(boardToUpdate, 14);
 
-  expect(boardToUpdate[0]).toEqual([22, 13, 17, 11, 0]);
-  expect(boardToUpdate[1]).toEqual([8, 2, 23, 4, 24]);
-  expect(boardToUpdate[2]).toContain(-1);
-  expect(boardToUpdate[3]).toEqual([6, 10, 3, 18, 5]);
-  expect(boardToUpdate[4]).toEqual([1, 12, 20, 15, 19]);
+  it("ignores numbers that aren't called", () => {
+    expect(boardToUpdate[0]).toEqual([22, 13, 17, 11, 0]);
+    expect(boardToUpdate[1]).toEqual([8, 2, 23, 4, 24]);
+    expect(boardToUpdate[3]).toEqual([6, 10, 3, 18, 5]);
+    expect(boardToUpdate[4]).toEqual([1, 12, 20, 15, 19]);
+  });
+
+  it('replaces called numbers with -1', () => {
+    expect(boardToUpdate[2]).toContain(-1);
+  });
 });
 
-test('hasBoardWon', () => {
+describe('hasBoardWon', () => {
   const nonWinningBoard: Board = [
     [22, 13, 17, 11, 0],
     [8, 2, 23, 4, 24],
@@ -46,12 +51,20 @@ test('hasBoardWon', () => {
     [1, 12, 20, -1, 19],
   ];
 
-  expect(hasBoardWon(nonWinningBoard)).toBe(false);
-  expect(hasBoardWon(rowWinningBoard)).toBe(true);
-  expect(hasBoardWon(colWinningBoard)).toBe(true);
+  it('rejects non winning boards', () => {
+    expect(hasBoardWon(nonWinningBoard)).toBe(false);
+  });
+
+  it('identifies boards with a winning row', () => {
+    expect(hasBoardWon(rowWinningBoard)).toBe(true);
+  });
+
+  it('identifies boards with a winning column', () => {
+    expect(hasBoardWon(colWinningBoard)).toBe(true);
+  });
 });
 
-test('getBoardScore', () => {
+describe('getBoardScore', () => {
   const board: Board = [
     [22, -1, 17, -1, -1],
     [8, 2, 23, -1, 24],
@@ -60,7 +73,9 @@ test('getBoardScore', () => {
     [1, 12, 20, -1, 19],
   ];
 
-  expect(getBoardScore(board, 13)).toBe(2405);
+  it('calculates final board score', () => {
+    expect(getBoardScore(board, 13)).toBe(2405);
+  });
 });
 
 const winTestBoards: Board[] = [
@@ -91,16 +106,20 @@ const winTestCalledNumbers = [
   20, 8, 19, 3, 26, 1,
 ];
 
-test('getWinner', () => {
-  expect(getWinner(winTestBoards, winTestCalledNumbers)).toEqual([
-    winTestBoards[2],
-    24,
-  ]);
+describe('getWinner', () => {
+  it('finds the first board that wins', () => {
+    expect(getWinner(winTestBoards, winTestCalledNumbers)).toEqual([
+      winTestBoards[2],
+      24,
+    ]);
+  });
 });
 
-test('getFinalWinner', () => {
-  expect(getFinalWinner(winTestBoards, winTestCalledNumbers)).toEqual([
-    winTestBoards[1],
-    13,
-  ]);
+describe('getFinalWinner', () => {
+  it('finds the final board that wins', () => {
+    expect(getFinalWinner(winTestBoards, winTestCalledNumbers)).toEqual([
+      winTestBoards[1],
+      13,
+    ]);
+  });
 });
