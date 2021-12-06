@@ -4,11 +4,11 @@ import { simulateFishPopulationGrowth } from './simulateFishPopulationGrowth';
 const fish = [3, 4, 3, 1, 2];
 
 describe('simulateFishPopulationGrowth', () => {
-  it('simulates growth correctly', () => {
-    expect(sumArray(simulateFishPopulationGrowth(fish, 18))).toBe(26);
-
-    expect(sumArray(simulateFishPopulationGrowth(fish, 80))).toBe(5934);
-
-    expect(sumArray(simulateFishPopulationGrowth(fish, 256))).toBe(26984457539);
+  it.each([
+    { days: 18, expected: 26 },
+    { days: 80, expected: 5934 },
+    { days: 256, expected: 26984457539 },
+  ])('simulates growth correctly ($days days)', ({ days, expected }) => {
+    expect(sumArray(simulateFishPopulationGrowth(fish, days))).toBe(expected);
   });
 });
