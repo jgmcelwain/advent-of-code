@@ -2,26 +2,22 @@ export function calculateCrabFuel(
   crabPositions: number[],
   exponentialFuel = false,
 ): [minFuel: number, alignAtIndex: number] {
-  const minCrab = Math.min(...crabPositions);
-  const maxCrab = Math.max(...crabPositions);
+  const fuelCosts = crabPositions.map((_, i) =>
+    crabPositions.reduce((acc, curr) => {
+      let diff = Math.abs(curr - i);
 
-  const fuelCosts = [];
-
-  for (let i = minCrab; i <= maxCrab; i++) {
-    fuelCosts[i] = 0;
-
-    for (let j = 0; j < crabPositions.length; j++) {
-      const diff = Math.abs(crabPositions[j] - i);
-
-      if (exponentialFuel) {
-        for (let k = 1; k <= diff; k++) {
-          fuelCosts[i] += k;
-        }
+      if (!exponentialFuel) {
+        return acc + diff;
       } else {
-        fuelCosts[i] += diff;
+        while (diff > 0) {
+          acc += diff;
+          diff--;
+        }
+
+        return acc;
       }
-    }
-  }
+    }, 0),
+  );
 
   const minFuel = Math.min(...fuelCosts);
 
