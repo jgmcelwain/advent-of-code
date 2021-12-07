@@ -10,7 +10,7 @@
 | 4   | [Giant Squid](https://adventofcode.com/2021/day/4)             | [`src/2021/day-04`](https://github.com/jgmcelwain/advent-of-code/tree/main/src/2021/day-04) |
 | 5   | [Hydrothermal Venture](https://adventofcode.com/2021/day/5)    | [`src/2021/day-05`](https://github.com/jgmcelwain/advent-of-code/tree/main/src/2021/day-05) |
 | 6   | [Lanternfish](https://adventofcode.com/2021/day/6)             | [`src/2021/day-06`](https://github.com/jgmcelwain/advent-of-code/tree/main/src/2021/day-06) |
-| 6   | [The Treachery of Whales](https://adventofcode.com/2021/day/7) | [`src/2021/day-07`](https://github.com/jgmcelwain/advent-of-code/tree/main/src/2021/day-07) |
+| 7   | [The Treachery of Whales](https://adventofcode.com/2021/day/7) | [`src/2021/day-07`](https://github.com/jgmcelwain/advent-of-code/tree/main/src/2021/day-07) |
 
 ## Previous Years
 
