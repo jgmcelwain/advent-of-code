@@ -11,6 +11,7 @@
 | 5   | [Hydrothermal Venture](https://adventofcode.com/2021/day/5)    | [`src/2021/day-05`](https://github.com/jgmcelwain/advent-of-code/tree/main/src/2021/day-05) |
 | 6   | [Lanternfish](https://adventofcode.com/2021/day/6)             | [`src/2021/day-06`](https://github.com/jgmcelwain/advent-of-code/tree/main/src/2021/day-06) |
 | 7   | [The Treachery of Whales](https://adventofcode.com/2021/day/7) | [`src/2021/day-07`](https://github.com/jgmcelwain/advent-of-code/tree/main/src/2021/day-07) |
+| 8   | [Seven Segment Search](https://adventofcode.com/2021/day/8)    | [`src/2021/day-08`](https://github.com/jgmcelwain/advent-of-code/tree/main/src/2021/day-8)  |
 
 ## Previous Years
 
