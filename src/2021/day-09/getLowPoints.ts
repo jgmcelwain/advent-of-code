@@ -1,4 +1,5 @@
 import type { HeightMap, HeightMapCoordinate } from '.';
+import { getAdjacentPoints } from './getAdjacentPoints';
 import { getHeightMapValue } from './getHeightMapValue';
 
 export function getLowPoints(heightMap: HeightMap) {
@@ -9,10 +10,9 @@ export function getLowPoints(heightMap: HeightMap) {
   for (let row = 0; row < heightMap.length; row++) {
     for (let col = 0; col < heightMap[row].length; col++) {
       const lowestAdjacent = Math.min(
-        heightMapValue(row, col - 1),
-        heightMapValue(row, col + 1),
-        heightMapValue(row - 1, col),
-        heightMapValue(row + 1, col),
+        ...getAdjacentPoints(heightMap, row, col).map(({ row, col }) =>
+          heightMapValue(row, col),
+        ),
       );
 
       if (heightMap[row][col] < lowestAdjacent) {
