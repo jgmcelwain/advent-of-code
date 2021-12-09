@@ -17,6 +17,19 @@
 ## Previous Years
 
 <details>
+  <summary>2020</summary>
+
+| Day | Puzzle                                                     | Solution                                                                                    |
+| :-- | :--------------------------------------------------------- | :------------------------------------------------------------------------------------------ |
+| 1   | [Report Repair](https://adventofcode.com/2020/day/1)       | [`src/2020/day-01`](https://github.com/jgmcelwain/advent-of-code/tree/main/src/2020/day-01) |
+| 2   | [Password Philosophy](https://adventofcode.com/2020/day/2) | [`src/2020/day-02`](https://github.com/jgmcelwain/advent-of-code/tree/main/src/2020/day-02) |
+| 3   | [Toboggan Trajectory](https://adventofcode.com/2020/day/3) | [`src/2020/day-03`](https://github.com/jgmcelwain/advent-of-code/tree/main/src/2020/day-03) |
+| 4   | [Passport Processing](https://adventofcode.com/2020/day/3) | [`src/2020/day-04`](https://github.com/jgmcelwain/advent-of-code/tree/main/src/2020/day-04) |
+| 5   | [Binary Boarding](https://adventofcode.com/2020/day/5)     | [`src/2020/day-05`](https://github.com/jgmcelwain/advent-of-code/tree/main/src/2020/day-05) |
+
+</details>
+
+<details>
   <summary>2015</summary>
 
 | Day | Puzzle                                                                        | Solution                                                                                    |
