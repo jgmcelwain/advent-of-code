@@ -1,4 +1,4 @@
-import { CHUNK_ENDS, CHUNK_STARTS } from '.';
+import { processChunks } from './processChunk';
 
 const chunkCloseScores: { [key: string]: number } = {
   '(': 1,
@@ -8,29 +8,18 @@ const chunkCloseScores: { [key: string]: number } = {
 };
 
 export function getLineCompletionScore(line: string) {
-  const openChunks: string[] = [];
+  const [openChunks, badChunkEnd] = processChunks(line);
 
-  for (let i = 0; i < line.length; i++) {
-    if (CHUNK_STARTS.includes(line[i])) {
-      openChunks.push(line[i]);
-    } else {
-      const latestChunk = openChunks[openChunks.length - 1];
-      const neededEnd = CHUNK_ENDS[CHUNK_STARTS.indexOf(latestChunk)];
+  if (badChunkEnd !== null) {
+    return 0;
+  } else {
+    const score = openChunks.reverse().reduce((acc, chunk) => {
+      acc *= 5;
+      acc += chunkCloseScores[chunk];
 
-      if (neededEnd === line[i]) {
-        openChunks.pop();
-      } else {
-        return 0;
-      }
-    }
+      return acc;
+    }, 0);
+
+    return score;
   }
-
-  const score = openChunks.reverse().reduce((acc, chunk) => {
-    acc *= 5;
-    acc += chunkCloseScores[chunk];
-
-    return acc;
-  }, 0);
-
-  return score;
 }

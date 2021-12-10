@@ -2,9 +2,6 @@ import { getInput } from '../../../lib/getInput';
 import { getLineSyntaxErrorScore } from './getLineSyntaxErrorScore';
 import { getLineCompletionScore } from './getLineCompletionScore';
 
-export const CHUNK_STARTS = ['(', '[', '{', '<'];
-export const CHUNK_ENDS = [')', ']', '}', '>'];
-
 function partOne(lines: string[]) {
   const result = lines
     .map((line) => getLineSyntaxErrorScore(line))

@@ -1,4 +1,4 @@
-import { CHUNK_STARTS, CHUNK_ENDS } from '.';
+import { processChunks } from './processChunk';
 
 const badChunkScores: { [key: string]: number } = {
   ')': 3,
@@ -8,22 +8,7 @@ const badChunkScores: { [key: string]: number } = {
 };
 
 export function getLineSyntaxErrorScore(line: string) {
-  const openChunks: string[] = [];
+  const [, badChunkEnd] = processChunks(line);
 
-  for (let i = 0; i < line.length; i++) {
-    if (CHUNK_STARTS.includes(line[i])) {
-      openChunks.push(line[i]);
-    } else {
-      const latestChunk = openChunks[openChunks.length - 1];
-      const neededEnd = CHUNK_ENDS[CHUNK_STARTS.indexOf(latestChunk)];
-
-      if (neededEnd === line[i]) {
-        openChunks.pop();
-      } else {
-        return badChunkScores[line[i]];
-      }
-    }
-  }
-
-  return 0;
+  return badChunkEnd !== null ? badChunkScores[badChunkEnd] : 0;
 }
