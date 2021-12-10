@@ -13,6 +13,7 @@
 | 7   | [The Treachery of Whales](https://adventofcode.com/2021/day/7) | [`src/2021/day-07`](https://github.com/jgmcelwain/advent-of-code/tree/main/src/2021/day-07) |
 | 8   | [Seven Segment Search](https://adventofcode.com/2021/day/8)    | [`src/2021/day-08`](https://github.com/jgmcelwain/advent-of-code/tree/main/src/2021/day-08) |
 | 9   | [Smoke Basin](https://adventofcode.com/2021/day/9)             | [`src/2021/day-09`](https://github.com/jgmcelwain/advent-of-code/tree/main/src/2021/day-09) |
+| 9   | [Syntax Scoring](https://adventofcode.com/2021/day/10)         | [`src/2021/day-10`](https://github.com/jgmcelwain/advent-of-code/tree/main/src/2021/day-10) |
 
 ## Previous Years
 
