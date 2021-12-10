@@ -1,4 +1,4 @@
-import { processChunks } from './processChunk';
+import { processChunks } from './processChunks';
 
 const chunkCloseScores: { [key: string]: number } = {
   '(': 1,
