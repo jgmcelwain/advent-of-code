@@ -1,8 +1,11 @@
 import type { OctopiGrid } from '.';
 import { runOctopiSimulation } from './runOctopiSimulation';
 
-export function getOctopiFlashCount(octopi: OctopiGrid, iterations: number) {
-  let state = octopi;
+export function getOctopiFlashCount(
+  startState: OctopiGrid,
+  iterations: number,
+) {
+  let state = startState;
 
   let flashCount = 0;
 

@@ -1,8 +1,8 @@
 import type { OctopiGrid } from '.';
 import { runOctopiSimulation } from './runOctopiSimulation';
 
-export function getOctopiSynchronizedIteration(octopi: OctopiGrid): number {
-  let state = octopi;
+export function getOctopiSynchronizedIteration(startState: OctopiGrid): number {
+  let state = startState;
 
   let currentIteration = 0;
 

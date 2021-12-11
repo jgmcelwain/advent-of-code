@@ -2,28 +2,28 @@ import type { OctopiGrid } from '.';
 import { clone2DArray } from '../../../lib/clone2DArray';
 
 export function runOctopiSimulation(
-  start: OctopiGrid,
+  startState: OctopiGrid,
 ): [state: OctopiGrid, flashCount: number] {
   let flashCount = 0;
 
-  const nextState = clone2DArray(start);
+  const state = clone2DArray(startState);
 
   // increase the energy of each octopus by 1
-  for (let row = 0; row < nextState.length; row++) {
-    for (let col = 0; col < nextState[row].length; col++) {
-      nextState[row][col]++;
+  for (let row = 0; row < state.length; row++) {
+    for (let col = 0; col < state[row].length; col++) {
+      state[row][col]++;
     }
   }
 
   // whilst there are octopi with excess energy we need to have them increase
   // their neighbors energy and flash. this has to be a while loop so that it
   // carries on for flashes caused by other flashes
-  while (nextState.flat().some((octopus) => octopus > 9)) {
-    for (let row = 0; row < nextState.length; row++) {
-      for (let col = 0; col < nextState[row].length; col++) {
-        if (nextState[row][col] > 9) {
+  while (state.flat().some((octopus) => octopus > 9)) {
+    for (let row = 0; row < state.length; row++) {
+      for (let col = 0; col < state[row].length; col++) {
+        if (state[row][col] > 9) {
           flashCount++;
-          nextState[row][col] = 0;
+          state[row][col] = 0;
 
           // find all the neighbors of this octopus
           const neighborOctopi = [
@@ -35,17 +35,17 @@ export function runOctopiSimulation(
             [row + 1, col - 1],
             [row + 1, col],
             [row + 1, col + 1],
-          ].filter(([i, j]) => nextState[i]?.[j] !== undefined);
+          ].filter(([i, j]) => state[i]?.[j] !== undefined);
 
           // any neighbor which hasn't already flashed in this iteration should
           // have its energy increased by one
           neighborOctopi
-            .filter(([i, j]) => nextState[i][j] > 0)
-            .forEach(([i, j]) => nextState[i][j]++);
+            .filter(([i, j]) => state[i][j] > 0)
+            .forEach(([i, j]) => state[i][j]++);
         }
       }
     }
   }
 
-  return [nextState, flashCount];
+  return [state, flashCount];
 }
