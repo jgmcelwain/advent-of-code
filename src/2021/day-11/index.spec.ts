@@ -1,10 +1,10 @@
-import type { OctopiGrid } from '.';
+import type { OctopiMatrix } from '.';
 import { clone2DArray } from '../../../lib/clone2DArray';
 import { getOctopiFlashCount } from './getOctopiFlashCount';
 import { getOctopiSynchronizedIteration } from './getOctopiSynchronizedIteration';
 import { runOctopiSimulation } from './runOctopiSimulation';
 
-const testOctopi: OctopiGrid = [
+const testOctopi: OctopiMatrix = [
   [5, 4, 8, 3, 1, 4, 3, 2, 2, 3],
   [2, 7, 4, 5, 8, 5, 4, 7, 1, 1],
   [5, 2, 6, 4, 5, 5, 6, 1, 7, 3],

@@ -1,8 +1,10 @@
-import type { OctopiGrid } from '.';
+import type { OctopiMatrix } from '.';
 import { runOctopiSimulation } from './runOctopiSimulation';
 
-export function getOctopiSynchronizedIteration(startState: OctopiGrid): number {
-  let state = startState;
+export function getOctopiSynchronizedIteration(
+  inputMatrix: OctopiMatrix,
+): number {
+  let currentMatrix = inputMatrix;
 
   let currentIteration = 0;
 
@@ -10,12 +12,12 @@ export function getOctopiSynchronizedIteration(startState: OctopiGrid): number {
   while (true) {
     currentIteration++;
 
-    const [nextState] = runOctopiSimulation(state);
+    const [outputMatrix] = runOctopiSimulation(currentMatrix);
 
-    if (nextState.flat().every((octopus) => octopus === 0)) {
+    if (outputMatrix.flat().every((octopus) => octopus === 0)) {
       return currentIteration;
     }
 
-    state = nextState;
+    currentMatrix = outputMatrix;
   }
 }
