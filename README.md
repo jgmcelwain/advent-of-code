@@ -14,6 +14,7 @@
 | 8   | [Seven Segment Search](https://adventofcode.com/2021/day/8)    | [`src/2021/day-08`](https://github.com/jgmcelwain/advent-of-code/tree/main/src/2021/day-08) |
 | 9   | [Smoke Basin](https://adventofcode.com/2021/day/9)             | [`src/2021/day-09`](https://github.com/jgmcelwain/advent-of-code/tree/main/src/2021/day-09) |
 | 10  | [Syntax Scoring](https://adventofcode.com/2021/day/10)         | [`src/2021/day-10`](https://github.com/jgmcelwain/advent-of-code/tree/main/src/2021/day-10) |
+| 11  | [Dumbo Octopus](https://adventofcode.com/2021/day/11)          | [`src/2021/day-11`](https://github.com/jgmcelwain/advent-of-code/tree/main/src/2021/day-11) |
 
 ## Previous Years
 
