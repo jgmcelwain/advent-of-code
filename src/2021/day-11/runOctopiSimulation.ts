@@ -1,11 +1,22 @@
 import type { OctopiGrid } from '.';
 import { clone2DArray } from '../../../lib/clone2DArray';
 
+function getNeighbors(state: OctopiGrid, row: number, col: number) {
+  return [
+    [row - 1, col - 1],
+    [row - 1, col],
+    [row - 1, col + 1],
+    [row, col - 1],
+    [row, col + 1],
+    [row + 1, col - 1],
+    [row + 1, col],
+    [row + 1, col + 1],
+  ].filter(([r, c]) => state[r]?.[c] !== undefined);
+}
+
 export function runOctopiSimulation(
   startState: OctopiGrid,
 ): [state: OctopiGrid, flashCount: number] {
-  let flashCount = 0;
-
   const state = clone2DArray(startState);
 
   // increase the energy of each octopus by 1
@@ -22,20 +33,10 @@ export function runOctopiSimulation(
     for (let row = 0; row < state.length; row++) {
       for (let col = 0; col < state[row].length; col++) {
         if (state[row][col] > 9) {
-          flashCount++;
           state[row][col] = 0;
 
           // find all the neighbors of this octopus
-          const neighborOctopi = [
-            [row - 1, col - 1],
-            [row - 1, col],
-            [row - 1, col + 1],
-            [row, col - 1],
-            [row, col + 1],
-            [row + 1, col - 1],
-            [row + 1, col],
-            [row + 1, col + 1],
-          ].filter(([i, j]) => state[i]?.[j] !== undefined);
+          const neighborOctopi = getNeighbors(state, row, col);
 
           // any neighbor which hasn't already flashed in this iteration should
           // have its energy increased by one
@@ -46,6 +47,10 @@ export function runOctopiSimulation(
       }
     }
   }
+
+  // any octopus at 0 energy after all energy changes have been computed has
+  // flashed in this simulation iteration
+  const flashCount = state.flat().filter((octopus) => octopus === 0).length;
 
   return [state, flashCount];
 }
