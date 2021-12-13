@@ -18,7 +18,7 @@ function partTwo(matrix: number[][], instructions: Instruction[]) {
   }
 
   const result = `\n${currentMatrix
-    .map((row) => row.map((n) => (n === 1 ? '■' : ' ')).join(''))
+    .map((row) => row.map((n) => (n === 1 ? '▮' : ' ')).join(''))
     .join('\n')}`;
 
   console.log('Part Two: ', result);
