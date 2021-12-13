@@ -1,5 +1,5 @@
 import { getInput } from '../../../lib/getInput';
-
+import { runDay } from '../../../lib/runDay';
 import { getPositionAfterCourse } from './getPositionAfterCourse';
 import { getPositionAfterAimCourse } from './getPositionAfterAimCourse';
 
@@ -19,12 +19,14 @@ export enum Direction {
 }
 
 function partOne(instructions: Instruction[]) {
-  const result = getPositionAfterCourse(instructions);
-  console.log('Part One: ', result.depth * result.horizontal);
+  const { depth, horizontal } = getPositionAfterCourse(instructions);
+
+  return depth * horizontal;
 }
 function partTwo(instructions: Instruction[]) {
-  const result = getPositionAfterAimCourse(instructions);
-  console.log('Part Two: ', result.depth * result.horizontal);
+  const { depth, horizontal } = getPositionAfterAimCourse(instructions);
+
+  return depth * horizontal;
 }
 
 async function main() {
@@ -35,9 +37,14 @@ async function main() {
     return { direction, amount: Number(amount) };
   });
 
-  console.log('AoC 2021 - Day 02: Dive!');
-  partOne(instructions);
-  partTwo(instructions);
+  runDay(
+    2021,
+    2,
+    'Dive!',
+    () => partOne(instructions),
+    () => partTwo(instructions),
+    true,
+  );
 }
 
 if (process.argv.includes('run')) {

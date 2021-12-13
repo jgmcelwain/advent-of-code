@@ -1,11 +1,12 @@
 import type { OctopiMatrix } from '.';
+import { clone2DArray } from '../../../lib/clone2DArray';
 import { runOctopiSimulation } from './runOctopiSimulation';
 
 export function getOctopiFlashCount(
   inputMatrix: OctopiMatrix,
   iterations: number,
 ) {
-  let currentMatrix = inputMatrix;
+  let currentMatrix = clone2DArray(inputMatrix);
 
   let flashCount = 0;
 

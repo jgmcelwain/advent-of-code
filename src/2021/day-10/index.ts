@@ -1,12 +1,12 @@
 import { getInput } from '../../../lib/getInput';
+import { runDay } from '../../../lib/runDay';
 import { getLineSyntaxErrorScore } from './getLineSyntaxErrorScore';
 import { getLineCompletionScore } from './getLineCompletionScore';
 
 function partOne(lines: string[]) {
-  const result = lines
+  return lines
     .map((line) => getLineSyntaxErrorScore(line))
     .reduce((acc, curr) => (acc += curr), 0);
-  console.log('Part One: ', result);
 }
 
 function partTwo(lines: string[]) {
@@ -15,18 +15,21 @@ function partTwo(lines: string[]) {
     .filter((score) => score > 0)
     .sort((a, b) => a - b);
 
-  const result = completionScores[Math.floor(completionScores.length / 2)];
-
-  console.log('Part Two: ', result);
+  return completionScores[Math.floor(completionScores.length / 2)];
 }
 
 async function main() {
   const input = await getInput(__dirname);
   const lines = input.split('\n');
 
-  console.log('AoC 2021 - Day 10: Syntax Scoring');
-  partOne(lines);
-  partTwo(lines);
+  runDay(
+    2021,
+    10,
+    'Syntax Scoring',
+    () => partOne(lines),
+    () => partTwo(lines),
+    true,
+  );
 }
 
 if (process.argv.includes('run')) {

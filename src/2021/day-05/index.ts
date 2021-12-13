@@ -1,4 +1,5 @@
 import { getInput } from '../../../lib/getInput';
+import { runDay } from '../../../lib/runDay';
 import { getPositionTraversedCounts } from './getPositionTraversedCounts';
 
 export type Point = { x: number; y: number };
@@ -12,16 +13,14 @@ export enum LineKind {
 
 function partOne(lines: Line[]) {
   const positionTraversedCounts = getPositionTraversedCounts(lines);
-  const result = positionTraversedCounts.flat(2).filter((n) => n > 1).length;
 
-  console.log('Part One: ', result);
+  return positionTraversedCounts.flat(2).filter((n) => n > 1).length;
 }
 
 function partTwo(lines: Line[]) {
   const positionTraversedCounts = getPositionTraversedCounts(lines, true);
-  const result = positionTraversedCounts.flat(2).filter((n) => n > 1).length;
 
-  console.log('Part Two: ', result);
+  return positionTraversedCounts.flat(2).filter((n) => n > 1).length;
 }
 
 async function main() {
@@ -43,9 +42,14 @@ async function main() {
     return { start, end, kind };
   });
 
-  console.log('AoC 2021 - Day 05: Hydrothermal Venture');
-  partOne(lines);
-  partTwo(lines);
+  runDay(
+    2021,
+    5,
+    'Hydrothermal Venture',
+    () => partOne(lines),
+    () => partTwo(lines),
+    true,
+  );
 }
 
 if (process.argv.includes('run')) {

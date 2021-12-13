@@ -1,4 +1,5 @@
 import { getInput } from '../../../lib/getInput';
+import { runDay } from '../../../lib/runDay';
 import { foldMatrix } from './foldMatrix';
 
 export type PaperMatrix = (0 | 1)[][];
@@ -6,9 +7,7 @@ export type Instruction = { axis: 'x' | 'y'; position: number };
 
 function partOne(matrix: PaperMatrix, instructions: Instruction[]) {
   const outputMatrix = foldMatrix(matrix, instructions[0]);
-  const result = outputMatrix.flat().filter((point) => point === 1).length;
-
-  console.log('Part One: ', result);
+  return outputMatrix.flat().filter((point) => point === 1).length;
 }
 
 function partTwo(matrix: PaperMatrix, instructions: Instruction[]) {
@@ -18,11 +17,9 @@ function partTwo(matrix: PaperMatrix, instructions: Instruction[]) {
     currentMatrix = foldMatrix(currentMatrix, instructions[i]);
   }
 
-  const result = `\n${currentMatrix
+  return `\n${currentMatrix
     .map((row) => row.map((n) => (n === 1 ? '█' : ' ')).join(''))
     .join('\n')}`;
-
-  console.log('Part Two: ', result);
 }
 
 async function main() {
@@ -48,9 +45,14 @@ async function main() {
     return { axis: axis === 'x' ? 'x' : 'y', position: Number(position) };
   });
 
-  console.log('AoC 2021 - Day 13: Transparent Origami');
-  partOne(matrix, instructions);
-  partTwo(matrix, instructions);
+  runDay(
+    2021,
+    13,
+    'Transparent Origami',
+    () => partOne(matrix, instructions),
+    () => partTwo(matrix, instructions),
+    true,
+  );
 }
 
 if (process.argv.includes('run')) {

@@ -1,4 +1,5 @@
 import { getInput } from '../../../lib/getInput';
+import { runDay } from '../../../lib/runDay';
 import { calculateOutputValue } from './calculateOutputValue';
 import { countUniqueSegmentDigits } from './countUniqueSegmentDigits';
 
@@ -8,15 +9,11 @@ export type DisplayDataEntry = {
 };
 
 function partOne(entries: DisplayDataEntry[]) {
-  const result = countUniqueSegmentDigits(entries);
-
-  console.log('Part One: ', result);
+  return countUniqueSegmentDigits(entries);
 }
 
 function partTwo(entries: DisplayDataEntry[]) {
-  const result = calculateOutputValue(entries);
-
-  console.log('Part Two: ', result);
+  return calculateOutputValue(entries);
 }
 
 async function main() {
@@ -32,9 +29,14 @@ async function main() {
     };
   });
 
-  console.log('AoC 2021 - Day 08: Seven Segment Search');
-  partOne(entries);
-  partTwo(entries);
+  runDay(
+    2021,
+    8,
+    'Seven Segment Search',
+    () => partOne(entries),
+    () => partTwo(entries),
+    true,
+  );
 }
 
 if (process.argv.includes('run')) {

@@ -1,4 +1,5 @@
 import { getInput } from '../../../lib/getInput';
+import { runDay } from '../../../lib/runDay';
 import { getLowPoints } from './getLowPoints';
 import { getBasin } from './getBasin';
 
@@ -8,25 +9,21 @@ export type HeightMapCoordinate = { row: number; col: number };
 function partOne(heightMap: HeightMap) {
   const lowPoints = getLowPoints(heightMap);
 
-  const result = lowPoints.reduce(
+  return lowPoints.reduce(
     (acc, { row, col }) => (acc += 1 + heightMap[row][col]),
     0,
   );
-
-  console.log('Part One: ', result);
 }
 
 function partTwo(heightMap: HeightMap) {
   const lowPoints = getLowPoints(heightMap);
   const basins = lowPoints.map((lowPoint) => getBasin(heightMap, [lowPoint]));
 
-  const result = basins
+  return basins
     .map((basin) => basin.length)
     .sort((a, b) => b - a)
     .slice(0, 3)
     .reduce((acc, curr) => (acc *= curr), 1);
-
-  console.log('Part Two: ', result);
 }
 
 async function main() {
@@ -35,9 +32,14 @@ async function main() {
     .split('\n')
     .map((row) => row.split('').map((n) => Number(n)));
 
-  console.log('AoC 2021 - Day 09: Smoke Basin');
-  partOne(heightMap);
-  partTwo(heightMap);
+  runDay(
+    2021,
+    9,
+    'Smoke Basin',
+    () => partOne(heightMap),
+    () => partTwo(heightMap),
+    true,
+  );
 }
 
 if (process.argv.includes('run')) {

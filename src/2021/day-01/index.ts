@@ -1,4 +1,5 @@
 import { getInput } from '../../../lib/getInput';
+import { runDay } from '../../../lib/runDay';
 
 import { calculateDepthIncreases } from './calculateDepthIncreases';
 import { calculateWindowSumIncreases } from './calculateWindowSumIncreases';
@@ -7,13 +8,11 @@ export type DepthEntry = number;
 export type DepthReport = DepthEntry[];
 
 function partOne(depthReport: DepthReport) {
-  const result = calculateDepthIncreases(depthReport);
-  console.log('Part One: ', result);
+  return calculateDepthIncreases(depthReport);
 }
 
 function partTwo(depthReport: DepthReport) {
-  const result = calculateWindowSumIncreases(depthReport);
-  console.log('Part Two: ', result);
+  return calculateWindowSumIncreases(depthReport);
 }
 
 async function main() {
@@ -23,9 +22,14 @@ async function main() {
     .split('\n')
     .map((entry): DepthEntry => Number(entry));
 
-  console.log('AoC 2021 - Day 01: Sonar Sweep');
-  partOne(depthReport);
-  partTwo(depthReport);
+  runDay(
+    2021,
+    1,
+    'Sonar Sweep',
+    () => partOne(depthReport),
+    () => partTwo(depthReport),
+    true,
+  );
 }
 
 if (process.argv.includes('run')) {

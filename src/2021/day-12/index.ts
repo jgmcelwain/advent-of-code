@@ -1,18 +1,15 @@
 import { getInput } from '../../../lib/getInput';
+import { runDay } from '../../../lib/runDay';
 import { countPaths } from './countPaths';
 
 export type PathMap = Record<string, string[]>;
 
 function partOne(pathMap: PathMap) {
-  const result = countPaths(pathMap, false);
-
-  console.log('Part One: ', result);
+  return countPaths(pathMap, false);
 }
 
 function partTwo(pathMap: PathMap) {
-  const result = countPaths(pathMap, true);
-
-  console.log('Part Two: ', result);
+  return countPaths(pathMap, true);
 }
 
 async function main() {
@@ -34,9 +31,14 @@ async function main() {
     }
   });
 
-  console.log('AoC 2021 - Day 12: Passage Pathing');
-  partOne(pathMap);
-  partTwo(pathMap);
+  runDay(
+    2021,
+    12,
+    'Passage Pathing',
+    () => partOne(pathMap),
+    () => partTwo(pathMap),
+    true,
+  );
 }
 
 if (process.argv.includes('run')) {

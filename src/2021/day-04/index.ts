@@ -1,4 +1,5 @@
 import { getInput } from '../../../lib/getInput';
+import { runDay } from '../../../lib/runDay';
 
 import { getBoardScore } from './getBoardScore';
 import { getFinalWinner } from './getFinalWinner';
@@ -14,8 +15,7 @@ export const MARKED_NUMBER = -1;
 function partOne(calledNumbers: number[], boards: Board[]) {
   const [winningBoard, finalNumber] = getWinner(boards, calledNumbers);
 
-  const result = getBoardScore(winningBoard, finalNumber);
-  console.log('Part One: ', result);
+  return getBoardScore(winningBoard, finalNumber);
 }
 
 function partTwo(calledNumbers: number[], boards: Board[]) {
@@ -24,8 +24,7 @@ function partTwo(calledNumbers: number[], boards: Board[]) {
     calledNumbers,
   );
 
-  const result = getBoardScore(finalWinningBoard, finalNumber);
-  console.log('Part Two: ', result);
+  return getBoardScore(finalWinningBoard, finalNumber);
 }
 
 async function main() {
@@ -45,9 +44,14 @@ async function main() {
     });
   });
 
-  console.log('AoC 2021 - Day 04: Giant Squid');
-  partOne(calledNumbers, boards.concat());
-  partTwo(calledNumbers, boards.concat());
+  runDay(
+    2021,
+    4,
+    'Giant Squid',
+    () => partOne(calledNumbers, boards.concat()),
+    () => partTwo(calledNumbers, boards.concat()),
+    true,
+  );
 }
 
 if (process.argv.includes('run')) {

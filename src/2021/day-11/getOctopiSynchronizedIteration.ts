@@ -1,10 +1,11 @@
 import type { OctopiMatrix } from '.';
+import { clone2DArray } from '../../../lib/clone2DArray';
 import { runOctopiSimulation } from './runOctopiSimulation';
 
 export function getOctopiSynchronizedIteration(
   inputMatrix: OctopiMatrix,
 ): number {
-  let currentMatrix = inputMatrix;
+  let currentMatrix = clone2DArray(inputMatrix);
 
   let currentIteration = 0;
 
