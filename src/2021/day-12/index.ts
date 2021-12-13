@@ -34,7 +34,7 @@ async function main() {
     }
   });
 
-  console.log('AoC 2021 - Day 12: ????');
+  console.log('AoC 2021 - Day 12: Passage Pathing');
   partOne(pathMap);
   partTwo(pathMap);
 }
