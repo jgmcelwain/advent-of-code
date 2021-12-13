@@ -1,16 +1,19 @@
 import { clone2DArray } from '../../../lib/clone2DArray';
-import type { Instruction } from './index';
+import type { PaperMatrix, Instruction } from './index';
 
-export function foldMatrix(matrix: number[][], instruction: Instruction) {
+const combinedCellValue = (...cells: number[]) =>
+  cells.some((cell) => cell === 1) ? 1 : 0;
+
+export function foldMatrix(matrix: PaperMatrix, instruction: Instruction) {
   if (instruction.axis === 'y') {
     const outputMatrix = clone2DArray(matrix).slice(0, instruction.position);
 
     for (let y = instruction.position + 1; y < matrix.length; y++) {
-      for (let x = 0; x < matrix[y].length; x++) {
-        const distanceFromEdge = matrix.length - y;
+      const outputY = matrix.length - y - 1;
 
-        outputMatrix[distanceFromEdge - 1][x] = Math.max(
-          matrix[distanceFromEdge - 1][x],
+      for (let x = 0; x < matrix[y].length; x++) {
+        outputMatrix[outputY][x] = combinedCellValue(
+          matrix[outputY][x],
           matrix[y][x],
         );
       }
@@ -24,10 +27,10 @@ export function foldMatrix(matrix: number[][], instruction: Instruction) {
 
     for (let y = 0; y < matrix.length; y++) {
       for (let x = instruction.position + 1; x < matrix[y].length; x++) {
-        const distanceFromEdge = matrix[y].length - x;
+        const outputX = matrix[y].length - x - 1;
 
-        outputMatrix[y][distanceFromEdge - 1] = Math.max(
-          matrix[y][distanceFromEdge - 1],
+        outputMatrix[y][outputX] = combinedCellValue(
+          matrix[y][outputX],
           matrix[y][x],
         );
       }

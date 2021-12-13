@@ -1,11 +1,11 @@
-import type { Instruction } from '.';
+import type { PaperMatrix, Instruction } from '.';
 import { foldMatrix } from './foldMatrix';
 
 describe('foldMatrix', () => {
   it.each<{
-    inputMatrix: number[][];
+    inputMatrix: PaperMatrix;
     instruction: Instruction;
-    outputMatrix: number[][];
+    outputMatrix: PaperMatrix;
   }>([
     {
       inputMatrix: [

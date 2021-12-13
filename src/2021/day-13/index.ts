@@ -1,16 +1,17 @@
 import { getInput } from '../../../lib/getInput';
 import { foldMatrix } from './foldMatrix';
 
+export type PaperMatrix = (0 | 1)[][];
 export type Instruction = { axis: 'x' | 'y'; position: number };
 
-function partOne(matrix: number[][], instructions: Instruction[]) {
+function partOne(matrix: PaperMatrix, instructions: Instruction[]) {
   const outputMatrix = foldMatrix(matrix, instructions[0]);
   const result = outputMatrix.flat().filter((point) => point === 1).length;
 
   console.log('Part One: ', result);
 }
 
-function partTwo(matrix: number[][], instructions: Instruction[]) {
+function partTwo(matrix: PaperMatrix, instructions: Instruction[]) {
   let currentMatrix = matrix;
 
   for (let i = 0; i < instructions.length; i++) {
@@ -36,7 +37,7 @@ async function main() {
   const maxX = Math.max(...coordinates.map(([x]) => x));
   const maxY = Math.max(...coordinates.map(([, y]) => y));
 
-  const matrix: number[][] = Array.from({ length: maxY + 1 }).map(() =>
+  const matrix: PaperMatrix = Array.from({ length: maxY + 1 }).map(() =>
     Array(maxX + 1).fill(0),
   );
   coordinates.forEach(([x, y]) => (matrix[y][x] = 1));
