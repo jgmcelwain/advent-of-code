@@ -16,6 +16,7 @@
 | 10  | [Syntax Scoring](https://adventofcode.com/2021/day/10)         | [`src/2021/day-10`](https://github.com/jgmcelwain/advent-of-code/tree/main/src/2021/day-10) |
 | 11  | [Dumbo Octopus](https://adventofcode.com/2021/day/11)          | [`src/2021/day-11`](https://github.com/jgmcelwain/advent-of-code/tree/main/src/2021/day-11) |
 | 12  | [Passage Pathing](https://adventofcode.com/2021/day/12)        | [`src/2021/day-12`](https://github.com/jgmcelwain/advent-of-code/tree/main/src/2021/day-12) |
+| 13  | [Transparent Origami](https://adventofcode.com/2021/day/13)    | [`src/2021/day-13`](https://github.com/jgmcelwain/advent-of-code/tree/main/src/2021/day-13) |
 
 ## Previous Years
 
