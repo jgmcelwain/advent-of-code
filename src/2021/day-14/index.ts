@@ -1,45 +1,32 @@
 import { getInput } from '../../../lib/getInput';
 import { runDay } from '../../../lib/runDay';
-import { applyInsertionRules } from './applyInsertionRules';
-import { getInitialChunkCounts } from './getInitialChunkCounts';
-import { getInitialCharacterCounts } from './getInitialCharacterCounts';
+import { getArrayMinMax } from '../../../lib/getArrayMinMax';
+import { getFinalCharacterCounts } from './getFinalCharacterCounts';
 
 export type InsertionRules = Record<string, string>;
 export type PolymerChunkCounts = Record<string, number>;
 export type CharacterCounts = Record<string, number>;
 
 function partOne(polymerTemplate: string, insertionRules: InsertionRules) {
-  let polymerChunkCounts = getInitialChunkCounts(polymerTemplate);
-  let characterCounts = getInitialCharacterCounts(polymerTemplate);
+  const characterCounts = getFinalCharacterCounts(
+    polymerTemplate,
+    insertionRules,
+    10,
+  );
 
-  for (let i = 0; i < 10; i++) {
-    [polymerChunkCounts, characterCounts] = applyInsertionRules(
-      polymerChunkCounts,
-      characterCounts,
-      insertionRules,
-    );
-  }
-
-  const minCount = Math.min(...Object.values(characterCounts));
-  const maxCount = Math.max(...Object.values(characterCounts));
+  const [minCount, maxCount] = getArrayMinMax(Object.values(characterCounts));
 
   return maxCount - minCount;
 }
 
 function partTwo(polymerTemplate: string, insertionRules: InsertionRules) {
-  let polymerChunkCounts = getInitialChunkCounts(polymerTemplate);
-  let characterCounts = getInitialCharacterCounts(polymerTemplate);
+  const characterCounts = getFinalCharacterCounts(
+    polymerTemplate,
+    insertionRules,
+    40,
+  );
 
-  for (let i = 0; i < 40; i++) {
-    [polymerChunkCounts, characterCounts] = applyInsertionRules(
-      polymerChunkCounts,
-      characterCounts,
-      insertionRules,
-    );
-  }
-
-  const minCount = Math.min(...Object.values(characterCounts));
-  const maxCount = Math.max(...Object.values(characterCounts));
+  const [minCount, maxCount] = getArrayMinMax(Object.values(characterCounts));
 
   return maxCount - minCount;
 }

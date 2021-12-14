@@ -1,9 +1,12 @@
 import { InsertionRules } from '.';
 import { applyInsertionRules } from './applyInsertionRules';
-import { getInitialCharacterCounts } from './getInitialCharacterCounts';
-import { getInitialChunkCounts } from './getInitialChunkCounts';
+import {
+  getFinalCharacterCounts,
+  getInitialCharacterCounts,
+  getInitialPolymerChunkCounts,
+} from './getFinalCharacterCounts';
 
-describe('getInitialChunkCounts', () => {
+describe('getInitialPolymerChunkCounts', () => {
   it.each([
     { template: 'NNCB', output: { CB: 1, NC: 1, NN: 1 } },
     {
@@ -48,9 +51,12 @@ describe('getInitialChunkCounts', () => {
         NH: 1,
       },
     },
-  ])('splits and counts chunks', ({ template, output }) => {
-    expect(getInitialChunkCounts(template)).toStrictEqual(output);
-  });
+  ])(
+    'splits and counts chunks from a polymer of length $template.length',
+    ({ template, output }) => {
+      expect(getInitialPolymerChunkCounts(template)).toStrictEqual(output);
+    },
+  );
 });
 
 describe('getInitialCharacterCounts', () => {
@@ -72,9 +78,12 @@ describe('getInitialCharacterCounts', () => {
       template: 'NBBNBNBBCCNBCNCCNBBNBBNBBBNBBNBBCBHCBHHNHCBBCBHCB',
       output: { B: 23, C: 10, H: 5, N: 11 },
     },
-  ])('splits and counts chunks', ({ template, output }) => {
-    expect(getInitialCharacterCounts(template)).toStrictEqual(output);
-  });
+  ])(
+    'splits and counts characters from a polymer of length $template.length',
+    ({ template, output }) => {
+      expect(getInitialCharacterCounts(template)).toStrictEqual(output);
+    },
+  );
 });
 
 const testPolymer = 'NNCB';
@@ -98,12 +107,41 @@ const testRules: InsertionRules = {
 };
 
 describe('applyInsertionRules', () => {
+  it('applies the polymer insertion rules', () => {
+    let polymerChunkCounts = getInitialPolymerChunkCounts(testPolymer);
+    let characterCounts = getInitialCharacterCounts(testPolymer);
+
+    [polymerChunkCounts, characterCounts] = applyInsertionRules(
+      polymerChunkCounts,
+      characterCounts,
+      testRules,
+    );
+
+    expect(polymerChunkCounts).toStrictEqual({
+      BC: 1,
+      CH: 1,
+      CN: 1,
+      HB: 1,
+      NB: 1,
+      NC: 1,
+    });
+    expect(characterCounts).toStrictEqual({ B: 2, C: 2, H: 1, N: 2 });
+  });
+});
+
+describe('getFinalCharacterCounts', () => {
   it.each([
-    { iterationCount: 1, outputCounts: { B: 2, C: 2, H: 1, N: 2 } },
-    { iterationCount: 10, outputCounts: { B: 1749, C: 298, H: 161, N: 865 } },
     {
-      iterationCount: 40,
-      outputCounts: {
+      iterations: 1,
+      output: { B: 2, C: 2, H: 1, N: 2 },
+    },
+    {
+      iterations: 10,
+      output: { B: 1749, C: 298, H: 161, N: 865 },
+    },
+    {
+      iterations: 40,
+      output: {
         B: 2192039569602,
         C: 6597635301,
         H: 3849876073,
@@ -111,20 +149,11 @@ describe('applyInsertionRules', () => {
       },
     },
   ])(
-    'applies the polymer insertion rules',
-    ({ iterationCount, outputCounts }) => {
-      let polymerChunkCounts = getInitialChunkCounts(testPolymer);
-      let characterCounts = getInitialCharacterCounts(testPolymer);
-
-      for (let i = 0; i < iterationCount; i++) {
-        [polymerChunkCounts, characterCounts] = applyInsertionRules(
-          polymerChunkCounts,
-          characterCounts,
-          testRules,
-        );
-      }
-
-      expect(characterCounts).toStrictEqual(outputCounts);
+    'gets the correct output from $iterations applyInsertionRules iterations',
+    ({ iterations, output }) => {
+      expect(
+        getFinalCharacterCounts(testPolymer, testRules, iterations),
+      ).toStrictEqual(output);
     },
   );
 });
