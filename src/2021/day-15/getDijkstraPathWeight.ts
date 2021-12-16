@@ -15,10 +15,7 @@ export function getDijkstraPathWeight(nodes: CavernSquare[][]) {
   }
 
   while (queue.length > 0) {
-    const currentNode = queue.shift();
-    if (currentNode === undefined) {
-      throw new Error('Queue is empty');
-    }
+    const currentNode = queue.shift() ?? ({} as CavernSquare);
 
     nodes[currentNode.y][currentNode.x].visited = true;
 
