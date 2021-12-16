@@ -1,5 +1,12 @@
 import type { CavernNode } from '.';
 
+const neighborMutations = [
+  [-1, 0],
+  [1, 0],
+  [0, -1],
+  [0, 1],
+];
+
 export function getDijkstraPathWeight(cavern: CavernNode[][]) {
   const queue = [cavern[0][0]];
   function addNodeToQueue(node: CavernNode) {
@@ -19,14 +26,12 @@ export function getDijkstraPathWeight(cavern: CavernNode[][]) {
 
     cavern[currentNode.y][currentNode.x].visited = true;
 
-    const adjacentNodePositions = [
-      { x: currentNode.x - 1, y: currentNode.y },
-      { x: currentNode.x + 1, y: currentNode.y },
-      { x: currentNode.x, y: currentNode.y - 1 },
-      { x: currentNode.x, y: currentNode.y + 1 },
-    ];
+    const neighborNodePositions = neighborMutations.map(([x, y]) => ({
+      x: currentNode.x + x,
+      y: currentNode.y + y,
+    }));
 
-    for (const { x, y } of adjacentNodePositions) {
+    for (const { x, y } of neighborNodePositions) {
       if (cavern[y]?.[x] === undefined || cavern[y]?.[x].visited === true) {
         continue;
       } else {
