@@ -3,7 +3,7 @@ import { runDay } from '../../../lib/runDay';
 import { buildCavern } from './buildCavern';
 import { getDijkstraPathWeight } from './getDijkstraPathWeight';
 
-export type CavernSquare = {
+export type CavernNode = {
   x: number;
   y: number;
   value: number;
@@ -12,13 +12,13 @@ export type CavernSquare = {
 };
 
 function partOne(matrix: number[][]) {
-  const cavern: CavernSquare[][] = buildCavern(matrix, 1, 1);
+  const cavern: CavernNode[][] = buildCavern(matrix, 1, 1);
 
   return getDijkstraPathWeight(cavern);
 }
 
 function partTwo(matrix: number[][]) {
-  const cavern: CavernSquare[][] = buildCavern(matrix, 5, 5);
+  const cavern: CavernNode[][] = buildCavern(matrix, 5, 5);
 
   return getDijkstraPathWeight(cavern);
 }

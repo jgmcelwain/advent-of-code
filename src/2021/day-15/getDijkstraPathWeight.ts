@@ -1,8 +1,8 @@
-import type { CavernSquare } from '.';
+import type { CavernNode } from '.';
 
-export function getDijkstraPathWeight(nodes: CavernSquare[][]) {
-  const queue = [nodes[0][0]];
-  function addNodeToQueue(node: CavernSquare) {
+export function getDijkstraPathWeight(cavern: CavernNode[][]) {
+  const queue = [cavern[0][0]];
+  function addNodeToQueue(node: CavernNode) {
     const insertIndex = queue.findIndex(
       (queuedNode) => queuedNode.weight > node.weight,
     );
@@ -15,9 +15,9 @@ export function getDijkstraPathWeight(nodes: CavernSquare[][]) {
   }
 
   while (queue.length > 0) {
-    const currentNode = queue.shift() ?? ({} as CavernSquare);
+    const currentNode = queue.shift() ?? ({} as CavernNode);
 
-    nodes[currentNode.y][currentNode.x].visited = true;
+    cavern[currentNode.y][currentNode.x].visited = true;
 
     const adjacentNodePositions = [
       { x: currentNode.x - 1, y: currentNode.y },
@@ -27,18 +27,18 @@ export function getDijkstraPathWeight(nodes: CavernSquare[][]) {
     ];
 
     for (const { x, y } of adjacentNodePositions) {
-      if (nodes[y]?.[x] === undefined || nodes[y]?.[x].visited === true) {
+      if (cavern[y]?.[x] === undefined || cavern[y]?.[x].visited === true) {
         continue;
       } else {
-        const newWeight = currentNode.weight + nodes[y][x].value;
+        const newWeight = currentNode.weight + cavern[y][x].value;
 
-        if (newWeight < nodes[y][x].weight) {
-          nodes[y][x].weight = newWeight;
-          addNodeToQueue(nodes[y][x]);
+        if (newWeight < cavern[y][x].weight) {
+          cavern[y][x].weight = newWeight;
+          addNodeToQueue(cavern[y][x]);
         }
       }
     }
   }
 
-  return nodes[nodes.length - 1][nodes[0].length - 1].weight;
+  return cavern[cavern.length - 1][cavern[0].length - 1].weight;
 }

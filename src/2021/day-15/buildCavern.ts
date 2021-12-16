@@ -1,16 +1,16 @@
-import { CavernSquare } from './index';
+import { CavernNode } from './index';
 
 export function buildCavern(
   matrix: number[][],
   xInstances: number,
   yInstances: number,
 ) {
-  const cavern: CavernSquare[][] = [];
+  const cavern: CavernNode[][] = [];
 
   for (let yc = 0; yc < yInstances; yc++) {
     cavern.push(
       ...matrix.map((row, y) => {
-        const cavernRow: CavernSquare[] = [];
+        const cavernRow: CavernNode[] = [];
 
         for (let xc = 0; xc < xInstances; xc++) {
           cavernRow.push(
