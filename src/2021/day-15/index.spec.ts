@@ -38,12 +38,12 @@ describe('buildCavern', () => {
 
 describe('getDijkstraPathWeight', () => {
   it.each([
-    { xRepeats: 1, yRepeats: 1, pathWeight: 40 },
-    { xRepeats: 5, yRepeats: 5, pathWeight: 315 },
+    { xInstances: 1, yInstances: 1, pathWeight: 40 },
+    { xInstances: 5, yInstances: 5, pathWeight: 315 },
   ])(
-    'finds the lowest path weight ($xRepeats x $yRepeats)',
-    ({ xRepeats, yRepeats, pathWeight }) => {
-      const cavern = buildCavern(testData, xRepeats, yRepeats);
+    'finds the lowest path weight ($xInstances x $yInstances)',
+    ({ xInstances, yInstances, pathWeight }) => {
+      const cavern = buildCavern(testData, xInstances, yInstances);
 
       expect(getDijkstraPathWeight(cavern)).toBe(pathWeight);
     },

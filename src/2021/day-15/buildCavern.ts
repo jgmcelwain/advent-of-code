@@ -2,17 +2,17 @@ import { CavernSquare } from './index';
 
 export function buildCavern(
   matrix: number[][],
-  xRepeats: number,
-  yRepeats: number,
+  xInstances: number,
+  yInstances: number,
 ) {
   const cavern: CavernSquare[][] = [];
 
-  for (let yc = 0; yc < yRepeats; yc++) {
+  for (let yc = 0; yc < yInstances; yc++) {
     cavern.push(
       ...matrix.map((row, y) => {
         const cavernRow: CavernSquare[] = [];
 
-        for (let xc = 0; xc < xRepeats; xc++) {
+        for (let xc = 0; xc < xInstances; xc++) {
           cavernRow.push(
             ...row.map((v, x) => {
               let value = v + yc + xc;
