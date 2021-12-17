@@ -1,4 +1,5 @@
 import { getValidVelocities } from './getValidVelocities';
+import { inBounds } from './inBounds';
 import { maxPossibleHeight } from './maxPossibleHeight';
 import { velocityReachesTargetArea } from './velocityReachesTargetArea';
 
@@ -7,6 +8,15 @@ const testBounds = { x1: 20, x2: 30, y1: -10, y2: -5 };
 describe('maxPossibleHeight', () => {
   it('finds the max height for a given y bound', () => {
     expect(maxPossibleHeight(-10)).toBe(45);
+  });
+});
+
+describe('inBounds', () => {
+  it('finds if a point lies within a bounding box', () => {
+    expect(inBounds(20, -10, testBounds)).toBe(true);
+    expect(inBounds(24, -7, testBounds)).toBe(true);
+    expect(inBounds(30, -2, testBounds)).toBe(false);
+    expect(inBounds(100, -7, testBounds)).toBe(false);
   });
 });
 
