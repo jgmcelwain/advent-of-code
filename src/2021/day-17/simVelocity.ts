@@ -1,4 +1,4 @@
-import { TargetAreaBounds } from './index';
+import type { TargetAreaBounds } from '.';
 
 export function simVelocity(
   vx: number,
