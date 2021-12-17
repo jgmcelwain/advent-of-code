@@ -1,36 +1,33 @@
 import { getInput } from '../../../lib/getInput';
 import { runDay } from '../../../lib/runDay';
 import { convertHexToBinaryString } from './convertHexToBinaryString';
+import { parsePacket } from './parsePacket';
+import { sumPacketVersions } from './sumPacketVersions';
 
-type Packet = {
+export type Packet = {
   version: number;
   type: number;
+  size: number;
   value: number;
-  subPackets: string[];
+  subPackets: Packet[];
 };
 
-function processPacket(packet: string): Packet {
-  const version = parseInt(packet.slice(0, 3), 2);
-  const packetType = parseInt(packet.slice(3, 6), 2);
-  const data = packet.slice(6, packet.length);
-
-  return { version, type: packetType, value: 1, subPackets: [] };
-}
-
 function partOne(binaryInput: string) {
-  const { version, type, value, subPackets } = processPacket(binaryInput);
-  console.log(version, type);
-  return null;
+  const packet = parsePacket(binaryInput);
+  const result = sumPacketVersions(packet);
+
+  return result;
 }
 
 function partTwo(binaryInput: string) {
-  return null;
+  const packet = parsePacket(binaryInput);
+
+  return packet.value;
 }
 
 async function main() {
-  // const input = await getInput(__dirname);
-  const input = 'D2FE28';
-  const binaryInput = convertHexToBinaryString(input).replace(/0+$/, '');
+  const input = await getInput(__dirname);
+  const binaryInput = convertHexToBinaryString(input);
 
   runDay(
     2021,
