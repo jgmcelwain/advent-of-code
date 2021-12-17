@@ -1,6 +1,6 @@
 import { getValidVelocities } from './getValidVelocities';
 import { maxPossibleHeight } from './maxPossibleHeight';
-import { simVelocity } from './simVelocity';
+import { velocityReachesTargetArea } from './velocityReachesTargetArea';
 
 const testBounds = { x1: 20, x2: 30, y1: -10, y2: -5 };
 
@@ -10,13 +10,13 @@ describe('maxPossibleHeight', () => {
   });
 });
 
-describe('simVelocity', () => {
+describe('velocityReachesTargetArea', () => {
   it('checks if a given velocity ends up in the bounding box', () => {
-    expect(simVelocity(15, -2, testBounds)).toBe(true);
-    expect(simVelocity(6, 9, testBounds)).toBe(true);
-    expect(simVelocity(20, -9, testBounds)).toBe(true);
-    expect(simVelocity(30, -5, testBounds)).toBe(true);
-    expect(simVelocity(7, 4, testBounds)).toBe(true);
+    expect(velocityReachesTargetArea(15, -2, testBounds)).toBe(true);
+    expect(velocityReachesTargetArea(6, 9, testBounds)).toBe(true);
+    expect(velocityReachesTargetArea(20, -9, testBounds)).toBe(true);
+    expect(velocityReachesTargetArea(30, -5, testBounds)).toBe(true);
+    expect(velocityReachesTargetArea(7, 4, testBounds)).toBe(true);
   });
 });
 

@@ -1,6 +1,6 @@
 import { TargetAreaBounds } from './index';
 
-export function simVelocity(
+export function velocityReachesTargetArea(
   vx: number,
   vy: number,
   targetArea: TargetAreaBounds,
