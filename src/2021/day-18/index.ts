@@ -1,7 +1,7 @@
 import { getInput } from '../../../lib/getInput';
 import { runDay } from '../../../lib/runDay';
 import { addSnailNumbers } from './addSnailNumbers';
-import { calculateMagnitude } from './calculateMagnitude';
+import { calculateSnailNumberMagnitude } from './calculateSnailNumberMagnitude';
 
 export enum SnailNumberCharacters {
   Open = '[',
@@ -14,7 +14,7 @@ function partOne(snailNumbers: string[]) {
     .slice(1)
     .reduce((acc, curr) => addSnailNumbers(acc, curr), snailNumbers[0]);
 
-  const result = calculateMagnitude(added);
+  const result = calculateSnailNumberMagnitude(added);
 
   return result;
 }
@@ -25,7 +25,7 @@ function partTwo(snailNumbers: string[]) {
   for (let i = 0; i < snailNumbers.length; i++) {
     for (let j = i + 1; j < snailNumbers.length; j++) {
       const sum = addSnailNumbers(snailNumbers[i], snailNumbers[j]);
-      const magnitude = calculateMagnitude(sum);
+      const magnitude = calculateSnailNumberMagnitude(sum);
 
       if (magnitude > result) {
         result = magnitude;

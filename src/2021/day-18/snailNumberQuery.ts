@@ -2,7 +2,7 @@ function reverseString(str: string): string {
   return str.split('').reverse().join('');
 }
 
-function findNumberPair(
+function findFirstPair(
   snailNumber: string,
 ): [pairAtStart: boolean, size: number, a: number, b: number] {
   const match = snailNumber.match(/\[(\d+),(\d+)\]/);
@@ -45,5 +45,5 @@ function findLastNumber(
 export const snailNumberQuery = {
   firstNumber: findFirstNumber,
   lastNumber: findLastNumber,
-  findPair: findNumberPair,
+  firstPair: findFirstPair,
 };
