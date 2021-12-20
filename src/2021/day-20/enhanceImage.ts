@@ -1,0 +1,33 @@
+import { Image, EnhancementMap, Pixel } from '.';
+
+export function enhanceImage(
+  image: Image,
+  enhancementMap: EnhancementMap,
+  iterationNumber: number,
+): Image {
+  const iterationDefault =
+    enhancementMap[0] === '1' && iterationNumber % 2 === 1 ? '1' : '0';
+
+  const output: Pixel[][] = [];
+
+  for (let y = -1; y <= image.length; y++) {
+    const outputRow: Pixel[] = [];
+
+    for (let x = -1; x <= image.length; x++) {
+      let enhancementMapIndex = '';
+      for (let dy = -1; dy <= 1; dy++) {
+        for (let dx = -1; dx <= 1; dx++) {
+          enhancementMapIndex += image[y + dy]?.[x + dx] ?? iterationDefault;
+        }
+      }
+
+      const enhancedPixel = enhancementMap[parseInt(enhancementMapIndex, 2)];
+
+      outputRow.push(enhancedPixel);
+    }
+
+    output.push(outputRow);
+  }
+
+  return output;
+}
