@@ -5,7 +5,7 @@ export function enhanceImage(
   enhancementMap: EnhancementMap,
   iterationNumber: number,
 ): Image {
-  const iterationDefault =
+  const iterationDefault: Pixel =
     enhancementMap[0] === '1' && iterationNumber % 2 === 1 ? '1' : '0';
 
   const output: Pixel[][] = [];
