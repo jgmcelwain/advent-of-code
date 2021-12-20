@@ -298,18 +298,6 @@ const testScanners = [
   },
 ];
 
-describe('placeScanners', () => {
-  it('places scanners in a 3d space based on the beacons they have found', () => {
-    expect(placeScanners(testInputScans)).toStrictEqual(testScanners);
-  });
-});
-
-describe('getMaxManhattanDistance', () => {
-  it('finds the maximum manhattan distance between two scanners in a set', () => {
-    expect(getMaxManhattanDistance(testScanners)).toBe(3621);
-  });
-});
-
 describe('attemptOrientation', () => {
   it("orients a scanner based on the beacons it knows about and a given known scanner's location", () => {
     const [position, beacons] = attemptOrientation(
@@ -321,6 +309,17 @@ describe('attemptOrientation', () => {
   });
 });
 
+describe('placeScanners', () => {
+  it('places scanners in a 3d space based on the beacons they have found', () => {
+    expect(placeScanners(testInputScans)).toStrictEqual(testScanners);
+  });
+});
+
+describe('getMaxManhattanDistance', () => {
+  it('finds the maximum manhattan distance between two scanners in a set', () => {
+    expect(getMaxManhattanDistance(testScanners)).toBe(3621);
+  });
+});
 describe('countUniqueBeacons', () => {
   it('counts the number of unique beacons found by a set of scanners', () => {
     expect(countUniqueBeacons(testScanners)).toBe(79);
