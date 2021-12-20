@@ -5,6 +5,9 @@ export function enhanceImage(
   enhancementMap: EnhancementMap,
   iterationNumber: number,
 ): Image {
+  // enhancement maps that start with a '1' will cause the "border" of the
+  // image, where new pixels have to be generated, to alternate between '1' and
+  // '0'.
   const iterationDefault: Pixel =
     enhancementMap[0] === '1' && iterationNumber % 2 === 1 ? '1' : '0';
 
