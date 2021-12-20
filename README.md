@@ -22,6 +22,7 @@
 | 16  | [Packet Decoder](https://adventofcode.com/2021/day/16)          | [`src/2021/day-16`](https://github.com/jgmcelwain/advent-of-code/tree/main/src/2021/day-16) |
 | 17  | [Trick Shot](https://adventofcode.com/2021/day/17)              | [`src/2021/day-17`](https://github.com/jgmcelwain/advent-of-code/tree/main/src/2021/day-17) |
 | 18  | [Snailfish](https://adventofcode.com/2021/day/18)               | [`src/2021/day-18`](https://github.com/jgmcelwain/advent-of-code/tree/main/src/2021/day-18) |
+| 20  | [Trench Map](https://adventofcode.com/2021/day/20)              | [`src/2021/day-20`](https://github.com/jgmcelwain/advent-of-code/tree/main/src/2021/day-20) |
 
 ## Previous Years
 
