@@ -3,19 +3,31 @@ import { runDay } from '../../../lib/runDay';
 import { playDeterministicGame } from './playDeterministicGame';
 import { playQuantumGames } from './playQuantumGames';
 
-function partOne(p1Start: number, p2Start: number) {
-  const outcome = playDeterministicGame(p1Start, p2Start);
+function partOne(
+  playerOneStartPosition: number,
+  playerTwoStartPosition: number,
+) {
+  const outcome = playDeterministicGame(
+    playerOneStartPosition,
+    playerTwoStartPosition,
+  );
 
   const losingScore = Math.min(
     outcome.players[1].score,
     outcome.players[2].score,
   );
 
-  return losingScore * outcome.dice;
+  return losingScore * outcome.diceRolls;
 }
 
-function partTwo(p1Start: number, p2Start: number) {
-  const result = playQuantumGames(p1Start, p2Start);
+function partTwo(
+  playerOneStartPosition: number,
+  playerTwoStartPosition: number,
+) {
+  const result = playQuantumGames(
+    playerOneStartPosition,
+    playerTwoStartPosition,
+  );
 
   return Math.max(result.playerOneWins, result.playerTwoWins);
 }
@@ -23,7 +35,7 @@ function partTwo(p1Start: number, p2Start: number) {
 async function main() {
   const input = await getInput(__dirname);
 
-  const [p1Start, p2Start] = input
+  const [playerOneStartPosition, playerTwoStartPosition] = input
     .split('\n')
     .map((r) => Number(r.split(': ')[1]));
 
@@ -31,8 +43,8 @@ async function main() {
     2021,
     21,
     'Dirac Dice',
-    () => partOne(p1Start, p2Start),
-    () => partTwo(p1Start, p2Start),
+    () => partOne(playerOneStartPosition, playerTwoStartPosition),
+    () => partTwo(playerOneStartPosition, playerTwoStartPosition),
     true,
   );
 }

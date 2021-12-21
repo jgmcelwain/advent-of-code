@@ -8,7 +8,10 @@ const potentialRolls: Record<number, number> = {
   9: 1,
 };
 
-export function playQuantumGames(p1Start: number, p2Start: number) {
+export function playQuantumGames(
+  playerOneStartPosition: number,
+  playerTwoStartPosition: number,
+) {
   // sets up a map to track how many wins are achieved from a given state.
   // since it's very common for multiple moves to result in the same state this
   // saves a lot of computation time if we ever come across the same state again
@@ -68,5 +71,5 @@ export function playQuantumGames(p1Start: number, p2Start: number) {
     return stateWinCount;
   }
 
-  return getWinsFromState(p1Start, p2Start);
+  return getWinsFromState(playerOneStartPosition, playerTwoStartPosition);
 }
