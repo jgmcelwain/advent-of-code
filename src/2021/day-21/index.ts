@@ -29,7 +29,7 @@ function partTwo(
     playerTwoStartPosition,
   );
 
-  return Math.max(result.playerOneWins, result.playerTwoWins);
+  return Math.max(...Object.values(result));
 }
 
 async function main() {

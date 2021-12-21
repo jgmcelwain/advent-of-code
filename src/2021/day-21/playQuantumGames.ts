@@ -8,6 +8,8 @@ const potentialRolls: Record<number, number> = {
   9: 1,
 };
 
+type TrackedWins = { activePlayerWins: number; inactivePlayerWins: number };
+
 export function playQuantumGames(
   playerOneStartPosition: number,
   playerTwoStartPosition: number,
@@ -15,18 +17,15 @@ export function playQuantumGames(
   // sets up a map to track how many wins are achieved from a given state.
   // since it's very common for multiple moves to result in the same state this
   // saves a lot of computation time if we ever come across the same state again
-  const stateWinCache = new Map<
-    string,
-    { playerOneWins: number; playerTwoWins: number }
-  >();
+  const stateWinCache = new Map<string, TrackedWins>();
 
   function getWinsFromState(
-    playerOnePosition: number,
-    playerTwoPosition: number,
-    playerOneScore = 0,
-    playerTwoScore = 0,
+    activePlayerPosition: number,
+    inactivePlayerPosition: number,
+    activePlayerScore = 0,
+    inactivePlayerScore = 0,
   ) {
-    const stateKey = `${playerOnePosition},${playerTwoPosition},${playerOneScore},${playerTwoScore}`;
+    const stateKey = `${activePlayerPosition},${activePlayerScore},${inactivePlayerPosition},${inactivePlayerScore}`;
 
     // if we've already run the simulation for this state then it's pointless
     // doing it again - just return from the cache
@@ -35,34 +34,36 @@ export function playQuantumGames(
       return cachedValueForState;
     }
 
-    const stateWinCount: { playerOneWins: number; playerTwoWins: number } = {
-      playerOneWins: 0,
-      playerTwoWins: 0,
+    const stateWinCount: TrackedWins = {
+      activePlayerWins: 0,
+      inactivePlayerWins: 0,
     };
 
     for (const roll in potentialRolls) {
       const rollCount = potentialRolls[roll];
 
-      let updatedPlayerOnePosition = (playerOnePosition + Number(roll)) % 10;
-      if (updatedPlayerOnePosition === 0) updatedPlayerOnePosition = 10;
+      let updatedActivePlayerPosition =
+        (activePlayerPosition + Number(roll)) % 10;
+      if (updatedActivePlayerPosition === 0) updatedActivePlayerPosition = 10;
 
-      const updatedPlayerOneScore = playerOneScore + updatedPlayerOnePosition;
+      const updatedActivePlayerScore =
+        activePlayerScore + updatedActivePlayerPosition;
 
-      if (updatedPlayerOneScore >= 21) {
-        stateWinCount.playerOneWins += rollCount;
+      if (updatedActivePlayerScore >= 21) {
+        stateWinCount.activePlayerWins += rollCount;
       } else {
         // if nobody has won then we need to rerun the sim from the current
         // state, inverting the players so that the player who didn't just have
         // their turn gets to go
         const result = getWinsFromState(
-          playerTwoPosition,
-          updatedPlayerOnePosition,
-          playerTwoScore,
-          updatedPlayerOneScore,
+          inactivePlayerPosition,
+          updatedActivePlayerPosition,
+          inactivePlayerScore,
+          updatedActivePlayerScore,
         );
 
-        stateWinCount.playerOneWins += result.playerTwoWins * rollCount;
-        stateWinCount.playerTwoWins += result.playerOneWins * rollCount;
+        stateWinCount.activePlayerWins += result.inactivePlayerWins * rollCount;
+        stateWinCount.inactivePlayerWins += result.activePlayerWins * rollCount;
       }
     }
 
