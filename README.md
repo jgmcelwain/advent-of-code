@@ -24,6 +24,7 @@
 | 18  | [Snailfish](https://adventofcode.com/2021/day/18)               | [`src/2021/day-18`](https://github.com/jgmcelwain/advent-of-code/tree/main/src/2021/day-18) |
 | 20  | [Beacon Scanner](https://adventofcode.com/2021/day/19)          | [`src/2021/day-19`](https://github.com/jgmcelwain/advent-of-code/tree/main/src/2021/day-19) |
 | 20  | [Trench Map](https://adventofcode.com/2021/day/20)              | [`src/2021/day-20`](https://github.com/jgmcelwain/advent-of-code/tree/main/src/2021/day-20) |
+| 21  | [Dirac Dice](https://adventofcode.com/2021/day/21)              | [`src/2021/day-21`](https://github.com/jgmcelwain/advent-of-code/tree/main/src/2021/day-21) |
 
 ## Previous Years
 
