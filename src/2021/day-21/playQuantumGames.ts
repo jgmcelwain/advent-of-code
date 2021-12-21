@@ -13,7 +13,7 @@ type TrackedWins = { activePlayerWins: number; inactivePlayerWins: number };
 export function playQuantumGames(
   playerOneStartPosition: number,
   playerTwoStartPosition: number,
-) {
+): { playerOneWins: number; playerTwoWins: number } {
   // sets up a map to track how many wins are achieved from a given state.
   // since it's very common for multiple moves to result in the same state this
   // saves a lot of computation time if we ever come across the same state again
@@ -72,5 +72,10 @@ export function playQuantumGames(
     return stateWinCount;
   }
 
-  return getWinsFromState(playerOneStartPosition, playerTwoStartPosition);
+  const { activePlayerWins, inactivePlayerWins } = getWinsFromState(
+    playerOneStartPosition,
+    playerTwoStartPosition,
+  );
+
+  return { playerOneWins: activePlayerWins, playerTwoWins: inactivePlayerWins };
 }
