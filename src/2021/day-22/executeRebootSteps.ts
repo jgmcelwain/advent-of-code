@@ -25,10 +25,11 @@ export function executeRebootSteps(rebootSteps: RebootStep[]) {
         cuboidsFromStep.push(existingCuboid);
       }
 
-      // otherwise, we need to "shave off" any overlap between our cuboids. this
-      // is achieved by creating a new cuboid, based on the existing one, that
-      // is cut off when it reaches the boundary of our new cuboid. we need to
-      // do this for all six faces
+      // if they do intersect then we need to prevent duplicate points from
+      // entering our array. this is done by creating a copy of the existing
+      // cuboid that stops when it reaches a face of our new cuboid that it
+      // would otherwise intersect. this has the added benefit of always giving
+      // priority to the new cuboid, since it is included in its entirety.
       else {
         if (existingCuboid.x.min < newCuboid.x.min) {
           cuboidsFromStep.push({
