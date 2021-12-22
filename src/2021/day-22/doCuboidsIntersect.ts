@@ -1,6 +1,6 @@
-import { CuboidBounds } from '.';
+import { Cuboid } from '.';
 
-export function doCuboidsIntersect(a: CuboidBounds, b: CuboidBounds) {
+export function doCuboidsIntersect(a: Cuboid, b: Cuboid) {
   return (
     a.x.max > b.x.min &&
     a.y.max > b.y.min &&

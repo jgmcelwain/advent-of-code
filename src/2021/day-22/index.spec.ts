@@ -1,4 +1,4 @@
-import type { CuboidBounds } from '.';
+import type { Cuboid } from '.';
 import { countActivePoints } from './countActivePoints';
 import { doCuboidsIntersect } from './doCuboidsIntersect';
 import { executeRebootSteps } from './executeRebootSteps';
@@ -66,7 +66,7 @@ on x=-53470..21291,y=-120233..-33476,z=-44150..38147
 off x=-93533..-4276,y=-16170..68771,z=-104985..-24507`);
 
 describe('doCuboidsIntersect', () => {
-  it.each<{ a: CuboidBounds; b: CuboidBounds; result: boolean }>([
+  it.each<{ a: Cuboid; b: Cuboid; result: boolean }>([
     {
       a: {
         x: { min: 10, max: 12 },
@@ -117,12 +117,8 @@ describe('doCuboidsIntersect', () => {
 describe('executeRebootSteps', () => {
   it('executes the reboot steps in order, creating a list of resulting cuboids', () => {
     const result = executeRebootSteps(testRebootSteps);
-    const onCuboids = result.filter((cuboid) => cuboid.on === true);
-    const offCuboids = result.filter((cuboid) => cuboid.on === false);
 
-    expect(result).toHaveLength(636);
-    expect(onCuboids).toHaveLength(509);
-    expect(offCuboids).toHaveLength(127);
+    expect(result).toHaveLength(509);
   });
 });
 

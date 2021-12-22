@@ -8,16 +8,15 @@ export type AxisBounds = {
   min: number;
   max: number;
 };
-export type CuboidBounds = {
+export type Cuboid = {
   x: AxisBounds;
   y: AxisBounds;
   z: AxisBounds;
 };
-export type Cuboid = CuboidBounds & { on: boolean };
 
 export type RebootStep = {
   action: Action;
-  bounds: CuboidBounds;
+  bounds: Cuboid;
 };
 export enum Action {
   On = 'on',

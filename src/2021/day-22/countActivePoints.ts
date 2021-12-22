@@ -1,8 +1,7 @@
-import type { Cuboid, CuboidBounds } from '.';
+import type { Cuboid } from '.';
 
-export function countActivePoints(cuboids: Cuboid[], bounds?: CuboidBounds) {
+export function countActivePoints(cuboids: Cuboid[], bounds?: Cuboid) {
   return cuboids
-    .filter((cuboid) => cuboid.on)
     .filter((cuboid) => {
       if (bounds === undefined) return true;
 

@@ -11,10 +11,12 @@ export function executeRebootSteps(rebootSteps: RebootStep[]) {
       x: { min: step.bounds.x.min, max: step.bounds.x.max },
       y: { min: step.bounds.y.min, max: step.bounds.y.max },
       z: { min: step.bounds.z.min, max: step.bounds.z.max },
-      on: step.action === Action.On,
     };
 
-    const cuboidsFromStep: Cuboid[] = [newCuboid];
+    const cuboidsFromStep: Cuboid[] = [];
+    if (step.action === Action.On) {
+      cuboidsFromStep.push(newCuboid);
+    }
 
     for (const existingCuboid of cuboids) {
       const intersects = doCuboidsIntersect(newCuboid, existingCuboid);
@@ -36,7 +38,6 @@ export function executeRebootSteps(rebootSteps: RebootStep[]) {
             x: { min: existingCuboid.x.min, max: newCuboid.x.min },
             y: { min: existingCuboid.y.min, max: existingCuboid.y.max },
             z: { min: existingCuboid.z.min, max: existingCuboid.z.max },
-            on: existingCuboid.on,
           });
 
           existingCuboid.x.min = newCuboid.x.min;
@@ -47,7 +48,6 @@ export function executeRebootSteps(rebootSteps: RebootStep[]) {
             x: { min: existingCuboid.x.min, max: existingCuboid.x.max },
             y: { min: existingCuboid.y.min, max: newCuboid.y.min },
             z: { min: existingCuboid.z.min, max: existingCuboid.z.max },
-            on: existingCuboid.on,
           });
 
           existingCuboid.y.min = newCuboid.y.min;
@@ -58,7 +58,6 @@ export function executeRebootSteps(rebootSteps: RebootStep[]) {
             x: { min: existingCuboid.x.min, max: existingCuboid.x.max },
             y: { min: existingCuboid.y.min, max: existingCuboid.y.max },
             z: { min: existingCuboid.z.min, max: newCuboid.z.min },
-            on: existingCuboid.on,
           });
 
           existingCuboid.z.min = newCuboid.z.min;
@@ -69,7 +68,6 @@ export function executeRebootSteps(rebootSteps: RebootStep[]) {
             x: { min: newCuboid.x.max, max: existingCuboid.x.max },
             y: { min: existingCuboid.y.min, max: existingCuboid.y.max },
             z: { min: existingCuboid.z.min, max: existingCuboid.z.max },
-            on: existingCuboid.on,
           });
 
           existingCuboid.x.max = newCuboid.x.max;
@@ -80,7 +78,6 @@ export function executeRebootSteps(rebootSteps: RebootStep[]) {
             x: { min: existingCuboid.x.min, max: existingCuboid.x.max },
             y: { min: newCuboid.y.max, max: existingCuboid.y.max },
             z: { min: existingCuboid.z.min, max: existingCuboid.z.max },
-            on: existingCuboid.on,
           });
 
           existingCuboid.y.max = newCuboid.y.max;
@@ -91,7 +88,6 @@ export function executeRebootSteps(rebootSteps: RebootStep[]) {
             x: { min: existingCuboid.x.min, max: existingCuboid.x.max },
             y: { min: existingCuboid.y.min, max: existingCuboid.y.max },
             z: { min: newCuboid.z.max, max: existingCuboid.z.max },
-            on: existingCuboid.on,
           });
 
           existingCuboid.z.max = newCuboid.z.max;
