@@ -27,7 +27,7 @@ export function executeRebootSteps(rebootSteps: RebootStep[]) {
 
       // otherwise, we need to "shave off" any overlap between our cuboids. this
       // is achieved by creating a new cuboid, based on the existing one, that
-      // is cut off when it reaches the boundary of our new existingCuboid. we need to
+      // is cut off when it reaches the boundary of our new cuboid. we need to
       // do this for all six faces
       else {
         if (existingCuboid.x.min < newCuboid.x.min) {
