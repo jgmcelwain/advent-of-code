@@ -16,84 +16,84 @@ export function executeRebootSteps(rebootSteps: RebootStep[]) {
 
     const cuboidsFromStep: Cuboid[] = [newCuboid];
 
-    for (const cuboid of cuboids) {
-      const intersects = doCuboidsIntersect(newCuboid, cuboid);
+    for (const existingCuboid of cuboids) {
+      const intersects = doCuboidsIntersect(newCuboid, existingCuboid);
 
       // if our two cuboids don't intersect we can just add the new one to the
       // array
       if (!intersects) {
-        cuboidsFromStep.push(cuboid);
+        cuboidsFromStep.push(existingCuboid);
       }
 
       // otherwise, we need to "shave off" any overlap between our cuboids. this
       // is achieved by creating a new cuboid, based on the existing one, that
-      // is cut off when it reaches the boundary of our new cuboid. we need to
+      // is cut off when it reaches the boundary of our new existingCuboid. we need to
       // do this for all six faces
       else {
-        if (cuboid.x.min < newCuboid.x.min) {
+        if (existingCuboid.x.min < newCuboid.x.min) {
           cuboidsFromStep.push({
-            x: { min: cuboid.x.min, max: newCuboid.x.min },
-            y: { min: cuboid.y.min, max: cuboid.y.max },
-            z: { min: cuboid.z.min, max: cuboid.z.max },
-            on: cuboid.on,
+            x: { min: existingCuboid.x.min, max: newCuboid.x.min },
+            y: { min: existingCuboid.y.min, max: existingCuboid.y.max },
+            z: { min: existingCuboid.z.min, max: existingCuboid.z.max },
+            on: existingCuboid.on,
           });
 
-          cuboid.x.min = newCuboid.x.min;
+          existingCuboid.x.min = newCuboid.x.min;
         }
 
-        if (cuboid.y.min < newCuboid.y.min) {
+        if (existingCuboid.y.min < newCuboid.y.min) {
           cuboidsFromStep.push({
-            x: { min: cuboid.x.min, max: cuboid.x.max },
-            y: { min: cuboid.y.min, max: newCuboid.y.min },
-            z: { min: cuboid.z.min, max: cuboid.z.max },
-            on: cuboid.on,
+            x: { min: existingCuboid.x.min, max: existingCuboid.x.max },
+            y: { min: existingCuboid.y.min, max: newCuboid.y.min },
+            z: { min: existingCuboid.z.min, max: existingCuboid.z.max },
+            on: existingCuboid.on,
           });
 
-          cuboid.y.min = newCuboid.y.min;
+          existingCuboid.y.min = newCuboid.y.min;
         }
 
-        if (cuboid.z.min < newCuboid.z.min) {
+        if (existingCuboid.z.min < newCuboid.z.min) {
           cuboidsFromStep.push({
-            x: { min: cuboid.x.min, max: cuboid.x.max },
-            y: { min: cuboid.y.min, max: cuboid.y.max },
-            z: { min: cuboid.z.min, max: newCuboid.z.min },
-            on: cuboid.on,
+            x: { min: existingCuboid.x.min, max: existingCuboid.x.max },
+            y: { min: existingCuboid.y.min, max: existingCuboid.y.max },
+            z: { min: existingCuboid.z.min, max: newCuboid.z.min },
+            on: existingCuboid.on,
           });
 
-          cuboid.z.min = newCuboid.z.min;
+          existingCuboid.z.min = newCuboid.z.min;
         }
 
-        if (cuboid.x.max > newCuboid.x.max) {
+        if (existingCuboid.x.max > newCuboid.x.max) {
           cuboidsFromStep.push({
-            x: { min: newCuboid.x.max, max: cuboid.x.max },
-            y: { min: cuboid.y.min, max: cuboid.y.max },
-            z: { min: cuboid.z.min, max: cuboid.z.max },
-            on: cuboid.on,
+            x: { min: newCuboid.x.max, max: existingCuboid.x.max },
+            y: { min: existingCuboid.y.min, max: existingCuboid.y.max },
+            z: { min: existingCuboid.z.min, max: existingCuboid.z.max },
+            on: existingCuboid.on,
           });
 
-          cuboid.x.max = newCuboid.x.max;
+          existingCuboid.x.max = newCuboid.x.max;
         }
 
-        if (cuboid.y.max > newCuboid.y.max) {
+        if (existingCuboid.y.max > newCuboid.y.max) {
           cuboidsFromStep.push({
-            x: { min: cuboid.x.min, max: cuboid.x.max },
-            y: { min: newCuboid.y.max, max: cuboid.y.max },
-            z: { min: cuboid.z.min, max: cuboid.z.max },
-            on: cuboid.on,
+            x: { min: existingCuboid.x.min, max: existingCuboid.x.max },
+            y: { min: newCuboid.y.max, max: existingCuboid.y.max },
+            z: { min: existingCuboid.z.min, max: existingCuboid.z.max },
+            on: existingCuboid.on,
           });
 
-          cuboid.y.max = newCuboid.y.max;
+          existingCuboid.y.max = newCuboid.y.max;
         }
 
-        if (cuboid.z.max > newCuboid.z.max) {
+        if (existingCuboid.z.max > newCuboid.z.max) {
           cuboidsFromStep.push({
-            x: { min: cuboid.x.min, max: cuboid.x.max },
-            y: { min: cuboid.y.min, max: cuboid.y.max },
-            z: { min: newCuboid.z.max, max: cuboid.z.max },
-            on: cuboid.on,
+            x: { min: existingCuboid.x.min, max: existingCuboid.x.max },
+            y: { min: existingCuboid.y.min, max: existingCuboid.y.max },
+            z: { min: newCuboid.z.max, max: existingCuboid.z.max },
+            on: existingCuboid.on,
           });
 
-          cuboid.z.max = newCuboid.z.max;
+          existingCuboid.z.max = newCuboid.z.max;
         }
       }
     }
