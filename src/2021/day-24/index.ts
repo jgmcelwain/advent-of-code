@@ -1,9 +1,9 @@
-import type { AluInstruction, AluKey } from './alu';
-import { AluInstructionKind } from './alu';
+import type { AluInstruction } from './alu';
 
 import { getInput } from '../../../lib/getInput';
 import { runDay } from '../../../lib/runDay';
 import { checkModelNumber } from './checkModelNumber';
+import { parseAluInstructions } from './parseAluInstructions';
 
 // another "done by hand" day, since it was easier to figure out constraints
 // based on patterns in the input than to brute force (even with decent caching)
@@ -24,31 +24,7 @@ function partTwo(instructions: AluInstruction[]) {
 
 async function main() {
   const input = await getInput(__dirname);
-  const instructions: AluInstruction[] = input
-    .split('\n')
-    .map((instruction, i) => {
-      const split = instruction.split(' ');
-
-      const kind = split[0] as AluInstructionKind;
-      const a = split[1] as AluKey;
-
-      if (kind === AluInstructionKind.Input) {
-        return { kind, a };
-      } else {
-        if (!split[2]) {
-          throw new Error(
-            `ALU_Input/${
-              i + 1
-            }: "${kind}" instruction must contain a second value.`,
-          );
-        }
-        const b = isNaN(Number(split[2]))
-          ? (split[2] as AluKey)
-          : Number(split[2]);
-
-        return { kind, a, b };
-      }
-    });
+  const instructions = parseAluInstructions(input);
 
   runDay(
     2021,
