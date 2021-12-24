@@ -13,7 +13,7 @@ export function checkModelNumber(
     throw new Error('Model numbers cannot contain a 0.');
   }
 
-  const modelNumberDigits = modelNumber.toString().split('').map(Number);
+  const modelNumberDigits = [...`${modelNumber}`].map(Number);
   const currentInputValue = (function* () {
     let i = 0;
 
