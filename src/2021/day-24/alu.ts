@@ -14,23 +14,20 @@ export enum AluInstructionKind {
   Equality = 'eql',
 }
 
-type AluInstructionPayloadTypes = {
+type AluInstructionMap<M extends { [index: string]: unknown }> = {
+  [Key in keyof M]: M[Key] extends undefined
+    ? { kind: Key }
+    : { kind: Key } & M[Key];
+};
+
+export type AluInstruction = AluInstructionMap<{
   [AluInstructionKind.Input]: { a: AluKey };
   [AluInstructionKind.Add]: { a: AluKey; b: number | AluKey };
   [AluInstructionKind.Multiply]: { a: AluKey; b: number | AluKey };
   [AluInstructionKind.Divide]: { a: AluKey; b: number | AluKey };
   [AluInstructionKind.Modulo]: { a: AluKey; b: number | AluKey };
   [AluInstructionKind.Equality]: { a: AluKey; b: number | AluKey };
-};
-
-type AluInstructionVarMap<M extends { [index: string]: unknown }> = {
-  [Key in keyof M]: M[Key] extends undefined
-    ? { kind: Key }
-    : { kind: Key } & M[Key];
-};
-
-export type AluInstruction =
-  AluInstructionVarMap<AluInstructionPayloadTypes>[keyof AluInstructionVarMap<AluInstructionPayloadTypes>];
+}>[AluInstructionKind];
 
 export type AluState = Record<AluKey, number>;
 export type AluInput = Partial<AluState>;
