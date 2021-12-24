@@ -47,7 +47,7 @@ export function alu(
 
       if (value === undefined) {
         throw new Error(
-          `Instruction ${index + 1}: Attempted to read input from ${
+          `ALU_Exec/${index + 1}: Attempted to read input from ${
             instruction.a
           } but no value was found`,
         );
@@ -55,16 +55,6 @@ export function alu(
 
       state[instruction.a] = value;
     } else {
-      if (instruction.b === null) {
-        throw new Error(
-          `Instruction ${
-            index + 1
-          }: A second value (variable or number) is required to execute a ${
-            instruction.kind
-          } instruction.`,
-        );
-      }
-
       const b =
         typeof instruction.b === 'string'
           ? state[instruction.b]
