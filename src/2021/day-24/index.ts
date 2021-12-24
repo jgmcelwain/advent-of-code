@@ -5,6 +5,11 @@ import { getInput } from '../../../lib/getInput';
 import { runDay } from '../../../lib/runDay';
 import { checkModelNumber } from './checkModelNumber';
 
+// another "done by hand" day, since it was easier to figure out constraints
+// based on patterns in the input than to brute force (even with decent caching)
+// my way to the answer. i have seen some solutions that don't use brute force
+// that i may try to implement in the future
+
 function partOne(instructions: AluInstruction[]) {
   const result = checkModelNumber(99598963999971, instructions);
 
