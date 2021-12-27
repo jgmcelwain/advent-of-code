@@ -28,6 +28,7 @@
 | 22  | [Reactor Reboot](https://adventofcode.com/2021/day/22)          | [`src/2021/day-22`](https://github.com/jgmcelwain/advent-of-code/tree/main/src/2021/day-22) |
 | 23  | [Amphipod](https://adventofcode.com/2021/day/23)                | [`src/2021/day-23`](https://github.com/jgmcelwain/advent-of-code/tree/main/src/2021/day-23) |
 | 24  | [Arithmetic Logic Unit](https://adventofcode.com/2021/day/24)   | [`src/2021/day-24`](https://github.com/jgmcelwain/advent-of-code/tree/main/src/2021/day-24) |
+| 25  | [Sea Cucumber](https://adventofcode.com/2021/day/25)            | [`src/2021/day-25`](https://github.com/jgmcelwain/advent-of-code/tree/main/src/2021/day-25) |
 
 ## Previous Years
 
