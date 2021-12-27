@@ -1,4 +1,4 @@
-import type { Beacon, PlacedScanner, Position } from './index';
+import type { Beacon, PlacedScanner, Position } from '.';
 
 export const mutations: ((position: Position) => Position)[] = [
   ({ x, y, z }) => ({ x: x, y: y, z: z }),

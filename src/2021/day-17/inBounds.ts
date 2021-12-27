@@ -1,4 +1,4 @@
-import { TargetAreaBounds } from './index';
+import type { TargetAreaBounds } from '.';
 
 export function inBounds(x: number, y: number, bounds: TargetAreaBounds) {
   return x >= bounds.x1 && x <= bounds.x2 && y >= bounds.y1 && y <= bounds.y2;

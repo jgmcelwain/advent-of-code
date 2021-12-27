@@ -1,4 +1,4 @@
-import { CavernNode } from './index';
+import type { CavernNode } from '.';
 
 export function buildCavern(
   matrix: number[][],
