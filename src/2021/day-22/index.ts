@@ -47,7 +47,7 @@ async function main() {
   const input = await getInput(__dirname);
   const rebootSteps = parseRebootSteps(input);
 
-  runDay(
+  void runDay(
     2021,
     22,
     'Reactor Reboot',
@@ -58,5 +58,5 @@ async function main() {
 }
 
 if (process.argv.includes('run')) {
-  main();
+  void main();
 }

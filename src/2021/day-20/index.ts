@@ -36,7 +36,7 @@ async function main() {
     .split('\n')
     .map((row) => row.split('').map((pixel) => (pixel === '#' ? '1' : '0')));
 
-  runDay(
+  void runDay(
     2021,
     20,
     'Trench Map',
@@ -47,5 +47,5 @@ async function main() {
 }
 
 if (process.argv.includes('run')) {
-  main();
+  void main();
 }

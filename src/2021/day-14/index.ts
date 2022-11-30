@@ -42,7 +42,7 @@ async function main() {
     insertionRules[find] = insert;
   });
 
-  runDay(
+  void runDay(
     2021,
     14,
     'Extended Polymerization',
@@ -53,5 +53,5 @@ async function main() {
 }
 
 if (process.argv.includes('run')) {
-  main();
+  void main();
 }

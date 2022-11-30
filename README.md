@@ -1,6 +1,14 @@
 # [Advent of Code](https://adventofcode.com/)
 
-## 2021
+## 2022
+
+| Day | Puzzle | Solution |
+| :-- | :----- | :------- |
+
+## Previous Years
+
+<details>
+  <summary>2021</summary>
 
 | Day | Puzzle                                                          | Solution                                                                                    |
 | :-- | :-------------------------------------------------------------- | :------------------------------------------------------------------------------------------ |
@@ -30,7 +38,7 @@
 | 24  | [Arithmetic Logic Unit](https://adventofcode.com/2021/day/24)   | [`src/2021/day-24`](https://github.com/jgmcelwain/advent-of-code/tree/main/src/2021/day-24) |
 | 25  | [Sea Cucumber](https://adventofcode.com/2021/day/25)            | [`src/2021/day-25`](https://github.com/jgmcelwain/advent-of-code/tree/main/src/2021/day-25) |
 
-## Previous Years
+</details>
 
 <details>
   <summary>2020</summary>
@@ -81,12 +89,12 @@ $ yarn
 $ yarn test
 
 # runs jest test suite for a given day
-$ yarn test 2021/day-01
+$ yarn test 2022/day-01
 ```
 
 ### Solutions
 
 ```bash
 # runs the solution for a given day
-$ yarn solution 2021/day-01
+$ yarn solution 2022/day-01
 ```

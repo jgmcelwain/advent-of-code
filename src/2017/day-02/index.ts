@@ -5,8 +5,8 @@ import { runDay } from '../../../lib/runDay';
 function partOne(rows: number[][]) {
   let checksum = 0;
 
-  for (let i = 0; i < rows.length; i++) {
-    const [smallest, largest] = getArrayMinMax(rows[i]);
+  for (const row of rows) {
+    const [smallest, largest] = getArrayMinMax(row);
     checksum += largest - smallest;
   }
 
@@ -35,7 +35,7 @@ async function main() {
     .split('\n')
     .map((row) => row.split('	').map((n) => Number(n)));
 
-  runDay(
+  void runDay(
     2017,
     2,
     'Corruption Checksum',
@@ -46,5 +46,5 @@ async function main() {
 }
 
 if (process.argv.includes('run')) {
-  main();
+  void main();
 }

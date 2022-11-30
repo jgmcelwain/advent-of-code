@@ -29,7 +29,7 @@ async function main() {
   const input = await getInput(__dirname);
   const rocketModules = input.split('\n').map((n) => Number(n));
 
-  runDay(
+  void runDay(
     2021,
     1,
     '',
@@ -40,5 +40,5 @@ async function main() {
 }
 
 if (process.argv.includes('run')) {
-  main();
+  void main();
 }

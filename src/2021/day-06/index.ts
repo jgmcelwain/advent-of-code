@@ -15,7 +15,7 @@ async function main() {
   const input = await getInput(__dirname);
   const fishClocks = input.split(',').map(Number);
 
-  runDay(
+  void runDay(
     2021,
     6,
     'Lanternfish',
@@ -26,5 +26,5 @@ async function main() {
 }
 
 if (process.argv.includes('run')) {
-  main();
+  void main();
 }

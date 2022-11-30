@@ -34,9 +34,9 @@ async function main() {
   const maxX = Math.max(...coordinates.map(([x]) => x));
   const maxY = Math.max(...coordinates.map(([, y]) => y));
 
-  const matrix: PaperMatrix = Array.from({ length: maxY + 1 }).map(() =>
-    Array(maxX + 1).fill(0),
-  );
+  const matrix = Array.from({ length: maxY + 1 }).map(() =>
+    Array.from({ length: maxX + 1 }).fill(0),
+  ) as PaperMatrix;
   coordinates.forEach(([x, y]) => (matrix[y][x] = 1));
 
   const instructions = rawInstructions.map((str): Instruction => {
@@ -45,7 +45,7 @@ async function main() {
     return { axis: axis === 'x' ? 'x' : 'y', position: Number(position) };
   });
 
-  runDay(
+  void runDay(
     2021,
     13,
     'Transparent Origami',
@@ -56,5 +56,5 @@ async function main() {
 }
 
 if (process.argv.includes('run')) {
-  main();
+  void main();
 }

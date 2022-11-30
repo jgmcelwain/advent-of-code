@@ -29,7 +29,7 @@ async function main() {
   const input = await getInput(__dirname);
   const seaFloor = parseSeaFloor(input);
 
-  runDay(
+  void runDay(
     2021,
     25,
     'Sea Cucumber',
@@ -40,5 +40,5 @@ async function main() {
 }
 
 if (process.argv.includes('run')) {
-  main();
+  void main();
 }

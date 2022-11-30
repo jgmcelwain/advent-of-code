@@ -31,7 +31,7 @@ async function main() {
     }
   });
 
-  runDay(
+  void runDay(
     2021,
     12,
     'Passage Pathing',
@@ -42,5 +42,5 @@ async function main() {
 }
 
 if (process.argv.includes('run')) {
-  main();
+  void main();
 }

@@ -29,7 +29,7 @@ async function main() {
   const input = await getInput(__dirname);
   const digits = input.split('').map(Number);
 
-  runDay(
+  void runDay(
     2017,
     1,
     'Inverse Captcha',
@@ -40,5 +40,5 @@ async function main() {
 }
 
 if (process.argv.includes('run')) {
-  main();
+  void main();
 }

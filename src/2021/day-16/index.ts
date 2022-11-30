@@ -29,7 +29,7 @@ async function main() {
   const input = await getInput(__dirname);
   const binaryInput = convertHexToBinaryString(input);
 
-  runDay(
+  void runDay(
     2021,
     16,
     'Packet Decoder',
@@ -40,5 +40,5 @@ async function main() {
 }
 
 if (process.argv.includes('run')) {
-  main();
+  void main();
 }

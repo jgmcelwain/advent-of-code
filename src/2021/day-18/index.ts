@@ -40,7 +40,7 @@ async function main() {
   const input = await getInput(__dirname);
   const snailNumbers = input.split('\n');
 
-  runDay(
+  void runDay(
     2021,
     18,
     'Snailfish',
@@ -51,5 +51,5 @@ async function main() {
 }
 
 if (process.argv.includes('run')) {
-  main();
+  void main();
 }

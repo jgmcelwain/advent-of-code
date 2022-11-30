@@ -45,7 +45,7 @@ async function main() {
   const scanners = placeScanners(inputScanners);
   console.timeEnd('Input Processing');
 
-  runDay(
+  void runDay(
     2021,
     19,
     'Beacon Scanner',
@@ -56,5 +56,5 @@ async function main() {
 }
 
 if (process.argv.includes('run')) {
-  main();
+  void main();
 }

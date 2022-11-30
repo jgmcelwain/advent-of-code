@@ -1,6 +1,6 @@
 import { processChunks } from './processChunks';
 
-const badChunkScores: { [key: string]: number } = {
+const badChunkScores: Record<string, number> = {
   ')': 3,
   ']': 57,
   '}': 1197,

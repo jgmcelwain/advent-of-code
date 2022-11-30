@@ -31,7 +31,7 @@ function partTwo(passports: Passport[]) {
       }
     },
     hcl: (value) =>
-      value.charAt(0) === '#' &&
+      value.startsWith('#') &&
       value.slice(1, value.length).length === 6 &&
       !isNaN(Number(`0x${value.slice(1, value.length)}`)),
     ecl: (value) =>
@@ -67,5 +67,5 @@ async function main() {
 }
 
 if (process.argv.includes('run')) {
-  main();
+  void main();
 }

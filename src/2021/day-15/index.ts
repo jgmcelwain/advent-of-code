@@ -29,7 +29,7 @@ async function main() {
     .split('\n')
     .map((row) => row.split('').map((n) => Number(n)));
 
-  runDay(
+  void runDay(
     2021,
     15,
     'Chiton',
@@ -40,5 +40,5 @@ async function main() {
 }
 
 if (process.argv.includes('run')) {
-  main();
+  void main();
 }

@@ -19,7 +19,7 @@ async function main() {
     .split('\n')
     .map((row) => row.split('').map((o) => Number(o)));
 
-  runDay(
+  void runDay(
     2021,
     11,
     'Dumbo Octopus',
@@ -30,5 +30,5 @@ async function main() {
 }
 
 if (process.argv.includes('run')) {
-  main();
+  void main();
 }

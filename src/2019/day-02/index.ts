@@ -1,7 +1,7 @@
 import { getInput } from '../../../lib/getInput';
 import { runDay } from '../../../lib/runDay';
 
-import { executeIntcode } from '../executeIntCode';
+import { executeIntcode } from '../executeIntcode';
 
 function partOne(intcode: number[]) {
   const intcodeCopy = [...intcode];
@@ -35,7 +35,7 @@ async function main() {
   const input = await getInput(__dirname);
   const intcode = input.split(',').map((n) => Number(n));
 
-  runDay(
+  void runDay(
     2021,
     1,
     '',
@@ -46,5 +46,5 @@ async function main() {
 }
 
 if (process.argv.includes('run')) {
-  main();
+  void main();
 }

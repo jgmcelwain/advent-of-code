@@ -18,7 +18,7 @@ async function main() {
   const input = await getInput(__dirname);
   const crabPositions: number[] = input.split(',').map(Number);
 
-  runDay(
+  void runDay(
     2021,
     7,
     'The Treachery of Whales',
@@ -29,5 +29,5 @@ async function main() {
 }
 
 if (process.argv.includes('run')) {
-  main();
+  void main();
 }

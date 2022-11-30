@@ -19,7 +19,7 @@ async function main() {
   const input = await getInput(__dirname);
   const diagnosticReport: DiagnosticReport = input.split('\n');
 
-  runDay(
+  void runDay(
     2021,
     3,
     'Binary Diagnostic',
@@ -30,5 +30,5 @@ async function main() {
 }
 
 if (process.argv.includes('run')) {
-  main();
+  void main();
 }

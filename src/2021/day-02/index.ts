@@ -37,7 +37,7 @@ async function main() {
     return { direction, amount: Number(amount) };
   });
 
-  runDay(
+  void runDay(
     2021,
     2,
     'Dive!',
@@ -48,5 +48,5 @@ async function main() {
 }
 
 if (process.argv.includes('run')) {
-  main();
+  void main();
 }

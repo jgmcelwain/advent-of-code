@@ -8,10 +8,10 @@ export function parsePacket(packet: string): Packet {
     const packetChunks = packet.slice(6).match(/.{1,5}/g) ?? [];
     let packetSize = 6;
     let packetValue = '';
-    for (let i = 0; i < packetChunks?.length; i++) {
+    for (let i = 0; i < packetChunks.length; i++) {
       packetSize += 5;
       packetValue += packetChunks[i].slice(1);
-      if (packetChunks[i].charAt(0) === '0') {
+      if (packetChunks[i].startsWith('0')) {
         break;
       }
     }

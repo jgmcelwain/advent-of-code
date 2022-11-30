@@ -15,7 +15,7 @@ async function main() {
   // i worked today's solution out by hand. might come back and try to use an
   // alg to solve it at some point (dijkstras?)
 
-  runDay(
+  void runDay(
     2021,
     23,
     'Amphipod',
@@ -26,5 +26,5 @@ async function main() {
 }
 
 if (process.argv.includes('run')) {
-  main();
+  void main();
 }

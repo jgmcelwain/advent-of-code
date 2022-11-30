@@ -1,7 +1,7 @@
 import type { DiagnosticReport, BitCount, BitValue } from '.';
 
 function getDigitBitCounts(diagnosticReport: DiagnosticReport) {
-  const digitBitCounts: { [index: number]: BitCount } = {};
+  const digitBitCounts: Record<number, BitCount> = {};
 
   for (let i = 0; i < diagnosticReport.length; i++) {
     for (let j = 0; j < diagnosticReport[i].length; j++) {

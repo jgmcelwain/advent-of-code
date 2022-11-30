@@ -1,6 +1,6 @@
 import { processChunks } from './processChunks';
 
-const chunkCloseScores: { [key: string]: number } = {
+const chunkCloseScores: Record<string, number> = {
   '(': 1,
   '[': 2,
   '{': 3,

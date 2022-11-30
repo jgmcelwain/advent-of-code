@@ -1,5 +1,5 @@
 export function calculateSnailNumberMagnitude(snailNumber: string): number {
-  const value = JSON.parse(snailNumber);
+  const value = JSON.parse(snailNumber) as number | number[];
 
   if (Array.isArray(value)) {
     return (

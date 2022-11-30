@@ -22,7 +22,7 @@ async function main() {
     .split('\n')
     .map((entry): DepthEntry => Number(entry));
 
-  runDay(
+  void runDay(
     2021,
     1,
     'Sonar Sweep',
@@ -33,5 +33,5 @@ async function main() {
 }
 
 if (process.argv.includes('run')) {
-  main();
+  void main();
 }

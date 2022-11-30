@@ -39,7 +39,7 @@ async function main() {
     .split('\n')
     .map((r) => Number(r.split(': ')[1]));
 
-  runDay(
+  void runDay(
     2021,
     21,
     'Dirac Dice',
@@ -50,5 +50,5 @@ async function main() {
 }
 
 if (process.argv.includes('run')) {
-  main();
+  void main();
 }

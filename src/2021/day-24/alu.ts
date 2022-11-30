@@ -14,7 +14,7 @@ export enum AluInstructionKind {
   Equality = 'eql',
 }
 
-type AluInstructionMap<M extends { [index: string]: unknown }> = {
+type AluInstructionMap<M extends Record<string, unknown>> = {
   [Key in keyof M]: M[Key] extends undefined
     ? { kind: Key }
     : { kind: Key } & M[Key];

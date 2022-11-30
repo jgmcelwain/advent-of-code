@@ -29,7 +29,7 @@ async function main() {
     };
   });
 
-  runDay(
+  void runDay(
     2021,
     8,
     'Seven Segment Search',
@@ -40,5 +40,5 @@ async function main() {
 }
 
 if (process.argv.includes('run')) {
-  main();
+  void main();
 }

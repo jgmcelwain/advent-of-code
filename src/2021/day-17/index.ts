@@ -41,7 +41,7 @@ async function main() {
       y2: Infinity,
     });
 
-  runDay(
+  void runDay(
     2021,
     17,
     'Trick Shot',
@@ -52,5 +52,5 @@ async function main() {
 }
 
 if (process.argv.includes('run')) {
-  main();
+  void main();
 }

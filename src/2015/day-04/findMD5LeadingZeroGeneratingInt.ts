@@ -14,7 +14,7 @@ export function findMD5LeadingZeroGeneratingInt(
   while (true) {
     const hash = md5(`${salt}${i}`);
 
-    if (hash.slice(0, zeroCount) === ''.padStart(zeroCount, '0')) {
+    if (hash.startsWith(''.padStart(zeroCount, '0'))) {
       break;
     } else {
       i++;

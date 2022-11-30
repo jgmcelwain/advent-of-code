@@ -42,7 +42,7 @@ async function main() {
     return { start, end, kind };
   });
 
-  runDay(
+  void runDay(
     2021,
     5,
     'Hydrothermal Venture',
@@ -53,5 +53,5 @@ async function main() {
 }
 
 if (process.argv.includes('run')) {
-  main();
+  void main();
 }

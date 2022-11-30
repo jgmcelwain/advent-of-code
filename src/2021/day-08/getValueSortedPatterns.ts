@@ -1,5 +1,5 @@
 export function getValueSortedPatterns(patterns: string[]) {
-  const positionMap: { [key: string]: string } = {};
+  const positionMap: Record<string, string> = {};
 
   // these are the unique segment counts so we can just grab them
   const [one, seven, four, eight] = [2, 3, 4, 7].map(
@@ -17,8 +17,7 @@ export function getValueSortedPatterns(patterns: string[]) {
 
   // top right segment is the only segment missing from six, so we can compare
   // six to eight (which has all segments lit) to find what it is
-  positionMap.tr =
-    eight.split('').find((l) => six?.includes(l) === false) ?? '';
+  positionMap.tr = eight.split('').find((l) => six.includes(l) === false) ?? '';
 
   // one includes just the top right and bottom right segments, so we can just
   // find which one of those isn't the top right to get the bottom right
@@ -34,7 +33,7 @@ export function getValueSortedPatterns(patterns: string[]) {
 
   // the only difference between five and six is that six includes the bottom
   // left segment - we can use this to find out what it is
-  positionMap.bl = six.split('').find((l) => five?.includes(l) === false) ?? '';
+  positionMap.bl = six.split('').find((l) => five.includes(l) === false) ?? '';
 
   // three and two both have five segments but three includes the bottom right
   // segment - two does not
