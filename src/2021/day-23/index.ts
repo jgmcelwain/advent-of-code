@@ -1,5 +1,5 @@
-import { getInput } from '../../../lib/getInput';
-import { runDay } from '../../../lib/runDay';
+import { getInput } from '@/lib/getInput';
+import { runDay } from '@/lib/runDay';
 
 function partOne() {
   return 16157;

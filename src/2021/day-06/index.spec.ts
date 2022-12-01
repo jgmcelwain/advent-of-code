@@ -1,4 +1,4 @@
-import { sumArray } from '../../../lib/sumArray';
+import { sumArray } from '@/lib/sumArray';
 import { simulateFishPopulationGrowth } from './simulateFishPopulationGrowth';
 
 const fish = [3, 4, 3, 1, 2];

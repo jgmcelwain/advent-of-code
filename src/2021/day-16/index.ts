@@ -1,5 +1,5 @@
-import { getInput } from '../../../lib/getInput';
-import { runDay } from '../../../lib/runDay';
+import { getInput } from '@/lib/getInput';
+import { runDay } from '@/lib/runDay';
 import { convertHexToBinaryString } from './convertHexToBinaryString';
 import { parsePacket } from './parsePacket';
 import { sumPacketVersions } from './sumPacketVersions';

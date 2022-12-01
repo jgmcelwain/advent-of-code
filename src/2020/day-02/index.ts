@@ -1,4 +1,4 @@
-import { getInput } from '../../../lib/getInput';
+import { getInput } from '@/lib/getInput';
 
 type TestCase = {
   limits: { lower: number; upper: number };

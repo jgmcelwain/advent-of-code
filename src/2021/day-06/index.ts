@@ -1,6 +1,6 @@
-import { getInput } from '../../../lib/getInput';
-import { runDay } from '../../../lib/runDay';
-import { sumArray } from '../../../lib/sumArray';
+import { getInput } from '@/lib/getInput';
+import { runDay } from '@/lib/runDay';
+import { sumArray } from '@/lib/sumArray';
 import { simulateFishPopulationGrowth } from './simulateFishPopulationGrowth';
 
 function partOne(startingFish: number[]) {

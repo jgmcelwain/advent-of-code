@@ -1,4 +1,4 @@
-import { getInput } from '../../../lib/getInput';
+import { getInput } from '@/lib/getInput';
 
 import { getSantaHouseVisits } from './getSantaHouseVisits';
 import { getSantaAndRobotHouseVisits } from './getSantaAndRobotHouseVisits';

@@ -1,4 +1,4 @@
-import { getInput } from '../../../lib/getInput';
+import { getInput } from '@/lib/getInput';
 import { findMD5LeadingZeroGeneratingInt } from './findMD5LeadingZeroGeneratingInt';
 
 function partOne(secretKey: string) {

@@ -1,5 +1,5 @@
-import { getInput } from '../../../lib/getInput';
-import { runDay } from '../../../lib/runDay';
+import { getInput } from '@/lib/getInput';
+import { runDay } from '@/lib/runDay';
 import { foldMatrix } from './foldMatrix';
 
 export type PaperMatrix = (0 | 1)[][];

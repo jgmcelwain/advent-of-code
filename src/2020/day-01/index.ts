@@ -1,4 +1,4 @@
-import { getInput } from '../../../lib/getInput';
+import { getInput } from '@/lib/getInput';
 
 function partOne(entries: number[]) {
   console.time('p1');

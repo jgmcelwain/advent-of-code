@@ -1,4 +1,4 @@
-import { clone2DArray } from '../../../lib/clone2DArray';
+import { clone2DArray } from '@/lib/clone2DArray';
 import type { SeaFloor } from '.';
 import { SeaFloorTile } from '.';
 

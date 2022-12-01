@@ -1,7 +1,7 @@
 import type { AluInstruction } from './alu';
 
-import { getInput } from '../../../lib/getInput';
-import { runDay } from '../../../lib/runDay';
+import { getInput } from '@/lib/getInput';
+import { runDay } from '@/lib/runDay';
 import { checkModelNumber } from './checkModelNumber';
 import { parseAluInstructions } from './parseAluInstructions';
 

@@ -1,5 +1,5 @@
-import { getInput } from '../../../lib/getInput';
-import { runDay } from '../../../lib/runDay';
+import { getInput } from '@/lib/getInput';
+import { runDay } from '@/lib/runDay';
 
 function fuelForModule(mass: number, freeFuel = false): number {
   const fuel = Math.floor(mass / 3) - 2;

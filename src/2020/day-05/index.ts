@@ -1,4 +1,4 @@
-import { getInput } from '../../../lib/getInput';
+import { getInput } from '@/lib/getInput';
 
 type Seat = { row: number; col: number; id: number };
 

@@ -1,4 +1,4 @@
-import { getInput } from '../../../lib/getInput';
+import { getInput } from '@/lib/getInput';
 
 import { getPaperAmount } from './getPaperAmount';
 import { getRibbonLength } from './getRibbonLength';

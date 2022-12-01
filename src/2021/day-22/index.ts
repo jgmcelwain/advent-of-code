@@ -1,5 +1,5 @@
-import { getInput } from '../../../lib/getInput';
-import { runDay } from '../../../lib/runDay';
+import { getInput } from '@/lib/getInput';
+import { runDay } from '@/lib/runDay';
 import { countActivePoints } from './countActivePoints';
 import { executeRebootSteps } from './executeRebootSteps';
 import { parseRebootSteps } from './parseRebootSteps';

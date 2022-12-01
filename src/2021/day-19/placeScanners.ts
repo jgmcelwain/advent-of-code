@@ -1,5 +1,5 @@
 import type { Scanner, PlacedScanner } from '.';
-import { clone2DArray } from '../../../lib/clone2DArray';
+import { clone2DArray } from '@/lib/clone2DArray';
 import { attemptOrientation } from './attemptOrientation';
 
 export function placeScanners(scannerData: Scanner[]) {

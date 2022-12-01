@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
-import { getInput } from '../../../lib/getInput';
-import { runDay } from '../../../lib/runDay';
+import { getInput } from '@/lib/getInput';
+import { runDay } from '@/lib/runDay';
 import { placeScanners } from './placeScanners';
 import { countUniqueBeacons } from './countUniqueBeacons';
 import { getMaxManhattanDistance } from './getMaxManhattanDistance';

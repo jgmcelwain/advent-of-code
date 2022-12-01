@@ -1,5 +1,5 @@
 import type { OctopiMatrix } from '.';
-import { clone2DArray } from '../../../lib/clone2DArray';
+import { clone2DArray } from '@/lib/clone2DArray';
 import { runOctopiSimulation } from './runOctopiSimulation';
 
 export function getOctopiFlashCount(

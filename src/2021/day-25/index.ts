@@ -1,5 +1,5 @@
-import { getInput } from '../../../lib/getInput';
-import { runDay } from '../../../lib/runDay';
+import { getInput } from '@/lib/getInput';
+import { runDay } from '@/lib/runDay';
 import { parseSeaFloor } from './parseSeaFloor';
 import { updateSeaFloor } from './updateSeaFloor';
 

@@ -1,6 +1,6 @@
-import { getArrayMinMax } from '../../../lib/getArrayMinMax';
-import { getInput } from '../../../lib/getInput';
-import { runDay } from '../../../lib/runDay';
+import { getArrayMinMax } from '@/lib/getArrayMinMax';
+import { getInput } from '@/lib/getInput';
+import { runDay } from '@/lib/runDay';
 
 function partOne(rows: number[][]) {
   let checksum = 0;

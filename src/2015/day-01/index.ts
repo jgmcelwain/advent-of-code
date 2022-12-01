@@ -1,4 +1,4 @@
-import { getInput } from '../../../lib/getInput';
+import { getInput } from '@/lib/getInput';
 
 import { getBasementInstruction } from './getBasementInstruction';
 import { getDestinationFloor } from './getDestinationFloor';
