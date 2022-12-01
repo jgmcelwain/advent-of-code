@@ -1,37 +1,31 @@
 {
+  "ts-node": {
+    "require": ["tsconfig-paths/register"],
+    "compilerOptions": {
+      "module": "commonjs"
+    }
+  },
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@/lib/*": [
-        "lib/*"
-      ],
+      "@/lib/*": ["lib/*"]
     },
     "target": "es2020",
-    "lib": [
-      "esnext"
-    ],
+    "lib": ["esnext"],
     "allowJs": false,
     "skipLibCheck": true,
     "strict": true,
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,
     "esModuleInterop": true,
+    "module": "esnext",
     "moduleResolution": "node",
-    "resolveJsonModule": true,
     "noUncheckedIndexedAccess": true,
+    "resolveJsonModule": true,
     "isolatedModules": true,
     "incremental": true,
-    "types": ["node", "jest"],
-    "plugins": [
-      {
-        "name": "next"
-      }
-    ]
+    "types": ["node", "jest"]
   },
-  "include": [
-    "**/*.ts",
-  ],
-  "exclude": [
-    "node_modules"
-  ]
+  "include": ["./lib", "./src"],
+  "exclude": ["node_modules"]
 }
