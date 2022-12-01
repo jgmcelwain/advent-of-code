@@ -30,7 +30,7 @@ module.exports = {
         'no-unused-vars': 'off',
         '@typescript-eslint/no-unused-vars': 'warn',
         '@typescript-eslint/no-unnecessary-boolean-literal-compare': 'off',
-        '@typescript-eslint/prefer-for-of': 'off',
+        '@typescript-eslint/prefer-for-of': 'warn',
         'no-constant-condition': 'off',
         '@typescript-eslint/no-unnecessary-condition': [
           'warn',
