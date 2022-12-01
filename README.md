@@ -2,8 +2,9 @@
 
 ## 2022
 
-| Day | Puzzle | Solution |
-| :-- | :----- | :------- |
+| Day | Puzzle                                                  | Solution                                                                                    |
+| :-- | :------------------------------------------------------ | :------------------------------------------------------------------------------------------ |
+| 1   | [Calorie Counting](https://adventofcode.com/2022/day/1) | [`src/2022/day-01`](https://github.com/jgmcelwain/advent-of-code/tree/main/src/2022/day-01) |
 
 ## Previous Years
 
