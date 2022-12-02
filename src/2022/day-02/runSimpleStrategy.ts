@@ -11,7 +11,7 @@ enum Result {
   Tie,
   Win,
 }
-const resultScoreMap: Record<Result, number> = {
+const resultScore: Record<Result, number> = {
   [Result.Loss]: 0,
   [Result.Tie]: 3,
   [Result.Win]: 6,
@@ -22,27 +22,27 @@ enum PlayerMove {
   Paper = 'Y',
   Scissors = 'Z',
 }
-const moveScoreMap: Record<PlayerMove, number> = {
+const moveScore: Record<PlayerMove, number> = {
   [PlayerMove.Rock]: 1,
   [PlayerMove.Paper]: 2,
   [PlayerMove.Scissors]: 3,
 };
 
-const gameResultValueMap: Record<PlayerMove, Record<OpponentMove, number>> = {
+const gameResultScoreMap: Record<PlayerMove, Record<OpponentMove, number>> = {
   [PlayerMove.Rock]: {
-    [OpponentMove.Rock]: resultScoreMap[Result.Tie],
-    [OpponentMove.Paper]: resultScoreMap[Result.Loss],
-    [OpponentMove.Scissors]: resultScoreMap[Result.Win],
+    [OpponentMove.Rock]: resultScore[Result.Tie],
+    [OpponentMove.Paper]: resultScore[Result.Loss],
+    [OpponentMove.Scissors]: resultScore[Result.Win],
   },
   [PlayerMove.Paper]: {
-    [OpponentMove.Rock]: resultScoreMap[Result.Win],
-    [OpponentMove.Paper]: resultScoreMap[Result.Tie],
-    [OpponentMove.Scissors]: resultScoreMap[Result.Loss],
+    [OpponentMove.Rock]: resultScore[Result.Win],
+    [OpponentMove.Paper]: resultScore[Result.Tie],
+    [OpponentMove.Scissors]: resultScore[Result.Loss],
   },
   [PlayerMove.Scissors]: {
-    [OpponentMove.Rock]: resultScoreMap[Result.Loss],
-    [OpponentMove.Paper]: resultScoreMap[Result.Win],
-    [OpponentMove.Scissors]: resultScoreMap[Result.Tie],
+    [OpponentMove.Rock]: resultScore[Result.Loss],
+    [OpponentMove.Paper]: resultScore[Result.Win],
+    [OpponentMove.Scissors]: resultScore[Result.Tie],
   },
 };
 
@@ -50,8 +50,8 @@ export function runSimpleStrategy(games: Game[]) {
   let totalScore = 0;
 
   for (const [opponentMove, playerMove] of games) {
-    totalScore += gameResultValueMap[playerMove][opponentMove];
-    totalScore += moveScoreMap[playerMove];
+    totalScore += gameResultScoreMap[playerMove][opponentMove];
+    totalScore += moveScore[playerMove];
   }
 
   return totalScore;

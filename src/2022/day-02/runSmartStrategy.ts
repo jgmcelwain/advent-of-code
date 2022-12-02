@@ -11,7 +11,7 @@ enum Result {
   Tie = 'Y',
   Win = 'Z',
 }
-const resultScoreMap: Record<Result, number> = {
+const resultScore: Record<Result, number> = {
   [Result.Loss]: 0,
   [Result.Tie]: 3,
   [Result.Win]: 6,
@@ -22,27 +22,27 @@ enum PlayerMove {
   Paper,
   Scissors,
 }
-const playerMoveScoreMap: Record<PlayerMove, number> = {
+const playerMoveScore: Record<PlayerMove, number> = {
   [PlayerMove.Rock]: 1,
   [PlayerMove.Paper]: 2,
   [PlayerMove.Scissors]: 3,
 };
 
-const moveScoreMap = {
+const moveScoreMap: Record<Result, Record<OpponentMove, number>> = {
   [Result.Win]: {
-    [OpponentMove.Rock]: playerMoveScoreMap[PlayerMove.Paper],
-    [OpponentMove.Paper]: playerMoveScoreMap[PlayerMove.Scissors],
-    [OpponentMove.Scissors]: playerMoveScoreMap[PlayerMove.Rock],
+    [OpponentMove.Rock]: playerMoveScore[PlayerMove.Paper],
+    [OpponentMove.Paper]: playerMoveScore[PlayerMove.Scissors],
+    [OpponentMove.Scissors]: playerMoveScore[PlayerMove.Rock],
   },
   [Result.Loss]: {
-    [OpponentMove.Rock]: playerMoveScoreMap[PlayerMove.Scissors],
-    [OpponentMove.Paper]: playerMoveScoreMap[PlayerMove.Rock],
-    [OpponentMove.Scissors]: playerMoveScoreMap[PlayerMove.Paper],
+    [OpponentMove.Rock]: playerMoveScore[PlayerMove.Scissors],
+    [OpponentMove.Paper]: playerMoveScore[PlayerMove.Rock],
+    [OpponentMove.Scissors]: playerMoveScore[PlayerMove.Paper],
   },
   [Result.Tie]: {
-    [OpponentMove.Rock]: playerMoveScoreMap[PlayerMove.Rock],
-    [OpponentMove.Paper]: playerMoveScoreMap[PlayerMove.Paper],
-    [OpponentMove.Scissors]: playerMoveScoreMap[PlayerMove.Scissors],
+    [OpponentMove.Rock]: playerMoveScore[PlayerMove.Rock],
+    [OpponentMove.Paper]: playerMoveScore[PlayerMove.Paper],
+    [OpponentMove.Scissors]: playerMoveScore[PlayerMove.Scissors],
   },
 };
 
@@ -50,7 +50,7 @@ export function runSmartStrategy(games: Game[]) {
   let totalScore = 0;
 
   for (const [opponentMove, desiredResult] of games) {
-    totalScore += resultScoreMap[desiredResult];
+    totalScore += resultScore[desiredResult];
     totalScore += moveScoreMap[desiredResult][opponentMove];
   }
 
