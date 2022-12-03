@@ -2,10 +2,11 @@
 
 ## 2022
 
-| Day | Puzzle                                                     | Solution                                                                                    |
-| :-- | :--------------------------------------------------------- | :------------------------------------------------------------------------------------------ |
-| 1   | [Calorie Counting](https://adventofcode.com/2022/day/1)    | [`src/2022/day-01`](https://github.com/jgmcelwain/advent-of-code/tree/main/src/2022/day-01) |
-| 2   | [Rock Paper Scissors](https://adventofcode.com/2022/day/2) | [`src/2022/day-02`](https://github.com/jgmcelwain/advent-of-code/tree/main/src/2022/day-02) |
+| Day | Puzzle                                                         | Solution                                                                                    |
+| :-- | :------------------------------------------------------------- | :------------------------------------------------------------------------------------------ |
+| 1   | [Calorie Counting](https://adventofcode.com/2022/day/1)        | [`src/2022/day-01`](https://github.com/jgmcelwain/advent-of-code/tree/main/src/2022/day-01) |
+| 2   | [Rock Paper Scissors](https://adventofcode.com/2022/day/2)     | [`src/2022/day-02`](https://github.com/jgmcelwain/advent-of-code/tree/main/src/2022/day-02) |
+| 3   | [Rucksack Reorganization](https://adventofcode.com/2022/day/3) | [`src/2022/day-03`](https://github.com/jgmcelwain/advent-of-code/tree/main/src/2022/day-03) |
 
 ## Previous Years
 
