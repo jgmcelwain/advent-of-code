@@ -1,9 +1,14 @@
 import { getInput } from '@/lib/getInput';
 import { runDay } from '@/lib/runDay';
+import { z } from 'zod';
 import { runSimpleStrategy } from './runSimpleStrategy';
 import { runSmartStrategy } from './runSmartStrategy';
 
-export type Game = readonly ['A' | 'B' | 'C', 'X' | 'Y' | 'Z'];
+const gameSchema = z.tuple([
+  z.union([z.literal('A'), z.literal('B'), z.literal('C')]),
+  z.union([z.literal('X'), z.literal('Y'), z.literal('Z')]),
+]);
+export type Game = z.infer<typeof gameSchema>;
 
 function partOne(games: Game[]) {
   const result = runSimpleStrategy(games);
@@ -19,10 +24,10 @@ function partTwo(games: Game[]) {
 
 async function main() {
   const input = await getInput(__dirname);
-  const games = input.split('\n').map((game): Game => {
+  const games = input.split('\n').map((game) => {
     const [a, b] = game.split(' ');
 
-    return [a as 'A' | 'B' | 'C', b as 'X' | 'Y' | 'Z'];
+    return gameSchema.parse([a, b]);
   });
 
   void runDay(

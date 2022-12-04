@@ -1,8 +1,8 @@
-import type { AssignedPair } from '.';
+import type { AssignedPairs } from '.';
 
 import { pairsWithContainedRanges, pairsWithOverlappingRanges } from '.';
 
-const testData: AssignedPair[] = [
+const testData: AssignedPairs = [
   [
     [2, 4],
     [6, 8],

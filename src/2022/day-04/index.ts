@@ -1,10 +1,12 @@
 import { getInput } from '@/lib/getInput';
 import { runDay } from '@/lib/runDay';
+import { z } from 'zod';
 
-type SectionRange = [start: number, end: number];
-export type AssignedPair = [SectionRange, SectionRange];
+const sectionRangeSchema = z.tuple([z.number(), z.number()]);
+const assignedPairSchema = z.tuple([sectionRangeSchema, sectionRangeSchema]);
+export type AssignedPairs = z.infer<typeof assignedPairSchema>[];
 
-export function pairsWithContainedRanges(pairs: AssignedPair[]) {
+export function pairsWithContainedRanges(pairs: AssignedPairs) {
   let containedRangeCount = 0;
 
   for (const [a, b] of pairs) {
@@ -15,7 +17,7 @@ export function pairsWithContainedRanges(pairs: AssignedPair[]) {
 
   return containedRangeCount;
 }
-export function pairsWithOverlappingRanges(pairs: AssignedPair[]) {
+export function pairsWithOverlappingRanges(pairs: AssignedPairs) {
   let overlappingRangeCount = 0;
 
   for (const [a, b] of pairs) {
@@ -27,13 +29,13 @@ export function pairsWithOverlappingRanges(pairs: AssignedPair[]) {
   return overlappingRangeCount;
 }
 
-function partOne(pairs: AssignedPair[]) {
+function partOne(pairs: AssignedPairs) {
   const result = pairsWithContainedRanges(pairs);
 
   return result;
 }
 
-function partTwo(pairs: AssignedPair[]) {
+function partTwo(pairs: AssignedPairs) {
   const result = pairsWithOverlappingRanges(pairs);
 
   return result;
@@ -41,14 +43,14 @@ function partTwo(pairs: AssignedPair[]) {
 
 async function main() {
   const input = await getInput(__dirname);
-  const pairs = input.split('\n').map((pair): AssignedPair => {
+  const pairs = input.split('\n').map((pair) => {
     const [a, b] = pair.split(',').map((assignedSections) => {
       const [start, end] = assignedSections.split('-');
 
       return [Number(start), Number(end)];
     });
 
-    return [a as SectionRange, b as SectionRange];
+    return assignedPairSchema.parse([a, b]);
   });
 
   void runDay(
