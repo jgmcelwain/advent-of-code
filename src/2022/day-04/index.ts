@@ -50,7 +50,6 @@ async function main() {
 
     return [a as SectionRange, b as SectionRange];
   });
-  console.log(pairs);
 
   void runDay(
     2022,
