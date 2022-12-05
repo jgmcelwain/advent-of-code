@@ -6,7 +6,7 @@ import { runCrateMover9001 } from './runCrateMover9001';
 
 export type CraneInstruction = { from: number; to: number; count: number };
 
-export const crateSchema = z.string();
+export const crateSchema = z.string().refine((value) => value !== ' ');
 export const crateStackSchema = z.array(crateSchema);
 export type CrateStack = z.infer<typeof crateStackSchema>;
 
@@ -32,33 +32,42 @@ async function main() {
   for (const row of stackTemplate.split('\n').reverse().slice(1)) {
     const trimmedRow = row.trimEnd();
 
+    // iterate over each row, 4 characters at a time. the input is of format
+    // [A] [B]     [C], so every 4th character starting at index 1 is either
+    // a crate we should add to a stack or a space that should be ignored.
     for (let i = 1; i < trimmedRow.length; i += 4) {
-      const char = crateSchema.parse(row[i]);
-      const toStack = stacks[Math.floor(i / 4)];
+      const parsedCrate = crateSchema.safeParse(row[i]);
 
-      if (char !== ' ') {
+      // if this is a valid crate (and not a space, indicating an absence of
+      // crate), add it to the stack
+      if (parsedCrate.success) {
+        const toStack = stacks[Math.floor(i / 4)];
+
+        // if the crate's stack doesn't exist yet in our state, create it
         if (toStack === undefined) {
-          stacks[Math.floor(i / 4)] = [char];
+          stacks[Math.floor(i / 4)] = [parsedCrate.data];
         } else {
-          toStack.push(char);
+          toStack.push(parsedCrate.data);
         }
       }
     }
   }
 
   const instructions: CraneInstruction[] = [];
+  const parsedInstructionSchema = z.tuple([z.number(), z.number(), z.number()]);
   for (const instruction of instructionsTemplate.split('\n')) {
-    const [count, from, to] = z
-      .tuple([z.number(), z.number(), z.number()])
-      .parse(
-        instruction
-          .replace(/[a-zA-Z]/g, '')
-          .split('  ')
-          .map((n) => Number(n)),
-      );
+    // converts "move 1 from 2 to 3" to [1, 2, 3]
+    const [count, from, to] = parsedInstructionSchema.parse(
+      instruction
+        .replace(/[a-zA-Z]/g, '')
+        .split('  ')
+        .map((n) => Number(n)),
+    );
 
     instructions.push({
       count,
+      // subtract 1 from the from/to values because the input is 1-indexed and
+      // we want to just use them as array indexes
       from: from - 1,
       to: to - 1,
     });

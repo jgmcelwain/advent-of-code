@@ -1,6 +1,5 @@
 import type { CrateStack, CraneInstruction } from '.';
 
-import { crateSchema } from '.';
 import { clone2DArray } from '@/lib/clone2DArray';
 
 export function runCrateMover9000(
@@ -15,9 +14,10 @@ export function runCrateMover9000(
 
     if (fromStack !== undefined && toStack !== undefined) {
       for (let i = 0; i < count; i++) {
-        const crateToMove = crateSchema.parse(fromStack.pop());
-
-        toStack.push(crateToMove);
+        const crateToMove = fromStack.pop();
+        if (crateToMove !== undefined) {
+          toStack.push(crateToMove);
+        }
       }
     }
   }
