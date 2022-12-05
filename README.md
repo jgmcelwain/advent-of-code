@@ -8,6 +8,7 @@
 | 2   | [Rock Paper Scissors](https://adventofcode.com/2022/day/2)     | [`src/2022/day-02`](https://github.com/jgmcelwain/advent-of-code/tree/main/src/2022/day-02) |
 | 3   | [Rucksack Reorganization](https://adventofcode.com/2022/day/3) | [`src/2022/day-03`](https://github.com/jgmcelwain/advent-of-code/tree/main/src/2022/day-03) |
 | 4   | [Camp Cleanup](https://adventofcode.com/2022/day/4)            | [`src/2022/day-04`](https://github.com/jgmcelwain/advent-of-code/tree/main/src/2022/day-04) |
+| 5   | [Supply Stacks](https://adventofcode.com/2022/day/5)           | [`src/2022/day-05`](https://github.com/jgmcelwain/advent-of-code/tree/main/src/2022/day-05) |
 
 ## Previous Years
 
