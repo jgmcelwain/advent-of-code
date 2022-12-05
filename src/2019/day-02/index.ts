@@ -36,8 +36,8 @@ async function main() {
   const intcode = input.split(',').map((n) => Number(n));
 
   void runDay(
-    2021,
-    1,
+    2019,
+    2,
     '',
     () => partOne(intcode),
     () => partTwo(intcode),

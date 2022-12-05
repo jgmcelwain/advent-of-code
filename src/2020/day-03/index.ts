@@ -16,10 +16,13 @@ function getTreeEncounters(treeMap: TreeMap, vx: number, vy: number) {
     px += vx;
     py += vy;
 
-    const nx = px % treeMap[py].length;
+    const treeY = treeMap[py];
+    if (treeY !== undefined) {
+      const nx = px % treeY.length;
 
-    if (treeMap[py][nx] === Entity.Tree) {
-      encounters++;
+      if (treeY[nx] === Entity.Tree) {
+        encounters++;
+      }
     }
   }
 

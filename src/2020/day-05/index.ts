@@ -5,9 +5,9 @@ type Seat = { row: number; col: number; id: number };
 function getSeats(boardingPasses: string[]) {
   const seats: Seat[] = [];
 
-  for (let i = 0; i < boardingPasses.length; i++) {
-    const row = Number(`0b${boardingPasses[i].slice(0, 7)}`);
-    const col = Number(`0b${boardingPasses[i].slice(7, 10)}`);
+  for (const boardingPass of boardingPasses) {
+    const row = Number(`0b${boardingPass.slice(0, 7)}`);
+    const col = Number(`0b${boardingPass.slice(7, 10)}`);
 
     seats.push({ row, col, id: row * 8 + col });
   }

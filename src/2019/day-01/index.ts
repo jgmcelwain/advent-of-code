@@ -30,7 +30,7 @@ async function main() {
   const rocketModules = input.split('\n').map((n) => Number(n));
 
   void runDay(
-    2021,
+    2019,
     1,
     '',
     () => partOne(rocketModules),

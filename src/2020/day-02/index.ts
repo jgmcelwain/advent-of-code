@@ -1,4 +1,5 @@
 import { getInput } from '@/lib/getInput';
+import { z } from 'zod';
 
 type TestCase = {
   limits: { lower: number; upper: number };
@@ -9,14 +10,14 @@ type TestCase = {
 function partOne(testCases: TestCase[]) {
   let result = 0;
 
-  for (let i = 0; i < testCases.length; i++) {
-    const letterInstances = testCases[i].password
+  for (const testCase of testCases) {
+    const letterInstances = testCase.password
       .split('')
-      .filter((letter) => letter === testCases[i].letter).length;
+      .filter((letter) => letter === testCase.letter).length;
 
     if (
-      letterInstances >= testCases[i].limits.lower &&
-      letterInstances <= testCases[i].limits.upper
+      letterInstances >= testCase.limits.lower &&
+      letterInstances <= testCase.limits.upper
     ) {
       result++;
     }
@@ -28,13 +29,11 @@ function partOne(testCases: TestCase[]) {
 function partTwo(testCases: TestCase[]) {
   let result = 0;
 
-  for (let i = 0; i < testCases.length; i++) {
+  for (const testCase of testCases) {
     const atLower =
-      testCases[i].password.charAt(testCases[i].limits.lower - 1) ===
-      testCases[i].letter;
+      testCase.password.charAt(testCase.limits.lower - 1) === testCase.letter;
     const atUpper =
-      testCases[i].password.charAt(testCases[i].limits.upper - 1) ===
-      testCases[i].letter;
+      testCase.password.charAt(testCase.limits.upper - 1) === testCase.letter;
 
     if ((atLower && !atUpper) || (!atLower && atUpper)) {
       result++;
@@ -46,11 +45,17 @@ function partTwo(testCases: TestCase[]) {
 
 async function main() {
   const input = await getInput(__dirname);
-  const testCases: TestCase[] = input.split('\n').map((entry) => {
-    const [lowerLimit, upperLimit, letter, password] = entry
-      .replace('-', ' ')
-      .replace(':', '')
-      .split(' ');
+  const parsedTestCaseSchema = z.tuple([
+    z.string(),
+    z.string(),
+    z.string(),
+    z.string(),
+  ]);
+  const testCases = input.split('\n').map((entry): TestCase => {
+    const [lowerLimit, upperLimit, letter, password] =
+      parsedTestCaseSchema.parse(
+        entry.replace('-', ' ').replace(':', '').split(' '),
+      );
 
     return {
       limits: {

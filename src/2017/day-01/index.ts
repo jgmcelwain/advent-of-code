@@ -4,9 +4,9 @@ import { runDay } from '@/lib/runDay';
 function partOne(digits: number[]) {
   let matchingCount = 0;
 
-  for (let i = 0; i < digits.length; i++) {
-    if (digits[i] === (digits[i + 1] ?? digits[0])) {
-      matchingCount += digits[i];
+  for (const [index, digit] of digits.entries()) {
+    if (digit === (digits[index + 1] ?? digits[0])) {
+      matchingCount += digit;
     }
   }
 
@@ -16,9 +16,9 @@ function partOne(digits: number[]) {
 function partTwo(digits: number[]) {
   let matchingCount = 0;
 
-  for (let i = 0; i < digits.length; i++) {
-    if (digits[i] === digits[(i + digits.length / 2) % digits.length]) {
-      matchingCount += digits[i];
+  for (const [index, digit] of digits.entries()) {
+    if (digit === digits[(index + digits.length / 2) % digits.length]) {
+      matchingCount += digit;
     }
   }
 

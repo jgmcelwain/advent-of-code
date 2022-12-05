@@ -5,8 +5,8 @@ export function getSantaHouseVisits(directions: Direction[]) {
   const position = { x: 0, y: 0 };
   const houseVisitCounts: Record<string, number> = { '0:0': 1 };
 
-  for (let i = 0; i < directions.length; i++) {
-    mutatePositionWithDirection(position, directions[i]);
+  for (const direction of directions) {
+    mutatePositionWithDirection(position, direction);
 
     const currentHouseKey = `${position.x}:${position.y}`;
     if (houseVisitCounts[currentHouseKey] === undefined) {

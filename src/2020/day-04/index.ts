@@ -1,4 +1,5 @@
 import { getInput } from '@/lib/getInput';
+import { z } from 'zod';
 
 type Passport = Record<string, string>;
 
@@ -42,7 +43,10 @@ function partTwo(passports: Passport[]) {
 
   const result = passports.filter((passport) => {
     for (const field in validators) {
-      if (!passport[field] || validators[field](passport[field]) === false) {
+      if (
+        !passport[field] ||
+        validators[field]?.(passport[field] ?? '') === false
+      ) {
         return false;
       }
     }
@@ -55,10 +59,14 @@ function partTwo(passports: Passport[]) {
 
 async function main() {
   const input = await getInput(__dirname);
-  const passports: Passport[] = input.split('\n\n').map((passport) => {
+  const passports = input.split('\n\n').map((passport): Passport => {
     const parsedPassport = passport.split('\n').join(' ').split(' ');
 
-    return Object.fromEntries(parsedPassport.map((field) => field.split(':')));
+    return z
+      .record(z.string())
+      .parse(
+        Object.fromEntries(parsedPassport.map((field) => field.split(':'))),
+      );
   });
 
   console.log('AoC 2020 - Day 04: Passport Processing');

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 type Intcode = number[];
 
 export function executeIntcode(intcode: Intcode) {
@@ -8,14 +9,42 @@ export function executeIntcode(intcode: Intcode) {
 
     switch (opcode) {
       case 1: {
-        intcode[intcode[cursor + 3]] =
-          intcode[intcode[cursor + 1]] + intcode[intcode[cursor + 2]];
+        const destination = intcode[cursor + 3];
+        if (destination === undefined) throw new Error();
+
+        const firstOperand = intcode[cursor + 1];
+        const secondOperand = intcode[cursor + 2];
+        if (firstOperand === undefined || secondOperand === undefined) {
+          throw new Error();
+        }
+
+        const firstValue = intcode[firstOperand];
+        const secondValue = intcode[secondOperand];
+        if (firstValue === undefined || secondValue === undefined) {
+          throw new Error();
+        }
+
+        intcode[destination] = firstValue + secondValue;
 
         break;
       }
       case 2: {
-        intcode[intcode[cursor + 3]] =
-          intcode[intcode[cursor + 1]] * intcode[intcode[cursor + 2]];
+        const destination = intcode[cursor + 3];
+        if (destination === undefined) throw new Error();
+
+        const firstOperand = intcode[cursor + 1];
+        const secondOperand = intcode[cursor + 2];
+        if (firstOperand === undefined || secondOperand === undefined) {
+          throw new Error();
+        }
+
+        const firstValue = intcode[firstOperand];
+        const secondValue = intcode[secondOperand];
+        if (firstValue === undefined || secondValue === undefined) {
+          throw new Error();
+        }
+
+        intcode[destination] = firstValue * secondValue;
 
         break;
       }
@@ -23,7 +52,7 @@ export function executeIntcode(intcode: Intcode) {
         return intcode[0];
       }
       default: {
-        throw new Error(`Unrecognized opcode ${opcode}.`);
+        throw new Error(`Unrecognized opcode ${opcode ?? ''}.`);
       }
     }
 

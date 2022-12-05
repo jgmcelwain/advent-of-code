@@ -4,14 +4,14 @@ function partOne(entries: number[]) {
   console.time('p1');
   let result: number | null = null;
 
-  for (let i = 0; i < entries.length; i++) {
+  for (const [i, iEntry] of entries.entries()) {
     if (result !== null) {
       break;
     }
 
-    for (let j = i + 1; j < entries.length; j++) {
-      if (entries[i] + entries[j] === 2020) {
-        result = entries[i] * entries[j];
+    for (const jEntry of entries.slice(i)) {
+      if (iEntry + jEntry === 2020) {
+        result = iEntry * jEntry;
 
         break;
       }
@@ -26,19 +26,19 @@ function partTwo(entries: number[]) {
   console.time('p2');
   let result: number | null = null;
 
-  for (let i = 0; i < entries.length; i++) {
+  for (const [i, iEntry] of entries.entries()) {
     if (result !== null) {
       break;
     }
 
-    for (let j = i + 1; j < entries.length; j++) {
+    for (const [j, jEntry] of entries.slice(i).entries()) {
       if (result !== null) {
         break;
       }
 
-      for (let k = j + 1; k < entries.length; k++) {
-        if (entries[i] + entries[j] + entries[k] === 2020) {
-          result = entries[i] * entries[j] * entries[k];
+      for (const kEntry of entries.slice(j + 1)) {
+        if (iEntry + jEntry + kEntry === 2020) {
+          result = iEntry * jEntry * kEntry;
 
           break;
         }

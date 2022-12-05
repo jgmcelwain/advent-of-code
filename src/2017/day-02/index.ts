@@ -16,11 +16,11 @@ function partOne(rows: number[][]) {
 function partTwo(rows: number[][]) {
   let resultSum = 0;
 
-  for (let i = 0; i < rows.length; i++) {
-    for (let j = 0; j < rows[i].length; j++) {
-      for (let k = 0; k < rows[i].length; k++) {
-        if (j !== k && (rows[i][j] / rows[i][k]) % 1 === 0) {
-          resultSum += rows[i][j] / rows[i][k];
+  for (const row of rows) {
+    for (const [jIndex, jCol] of row.entries()) {
+      for (const [kIndex, kCol] of row.entries()) {
+        if (jIndex !== kIndex && (jCol / kCol) % 1 === 0) {
+          resultSum += jCol / kCol;
         }
       }
     }
