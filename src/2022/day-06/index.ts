@@ -5,11 +5,12 @@ export const PACKET_MARKER_SIZE = 4;
 export const MESSAGE_MARKER_SIZE = 14;
 
 export function getMarkerPosition(dataStream: string[], markerSize: number) {
-  for (let i = 0; i < dataStream.length - (markerSize - 1); i++) {
-    const substr = dataStream.slice(i, i + markerSize);
+  for (let start = 0; start < dataStream.length; start++) {
+    const end = start + markerSize;
+    const substr = dataStream.slice(start, end);
 
     if (new Set(substr).size === markerSize) {
-      return i + markerSize;
+      return end;
     }
   }
 
