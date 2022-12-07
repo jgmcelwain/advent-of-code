@@ -30,7 +30,7 @@ export function buildFileSystem(input: string) {
 
   const fileSystem: FS = {};
 
-  let currentPathKey = '';
+  let currentPathDirs: string[] = [];
   let currentPath = fileSystem;
 
   for (const [[$, ...args], ...output] of commands) {
@@ -56,29 +56,26 @@ export function buildFileSystem(input: string) {
         switch (dir) {
           case '/': {
             currentPath = fileSystem;
-            currentPathKey = '/';
+            currentPathDirs = [];
+
             break;
           }
           case '..': {
-            let newCurrentPath = fileSystem;
+            currentPath = fileSystem;
+            currentPathDirs.pop();
 
-            const pathChunks = currentPathKey.split('/').filter(Boolean);
-            pathChunks.pop();
-
-            for (const chunk of pathChunks) {
-              const next = newCurrentPath[chunk];
+            for (const dir of currentPathDirs) {
+              const next = currentPath[dir];
 
               if (next === undefined || typeof next === 'number') {
                 throw new Error(
-                  `Could not execute 'cd ..', chunk '${chunk}' is not a valid destination.`,
+                  `Could not execute 'cd ..', dir '${dir}' is not a valid destination.`,
                 );
               } else {
-                newCurrentPath = next;
+                currentPath = next;
               }
             }
 
-            currentPathKey = pathChunks.join('/');
-            currentPath = newCurrentPath;
             break;
           }
           default: {
@@ -94,7 +91,7 @@ export function buildFileSystem(input: string) {
               );
             } else {
               currentPath = destination;
-              currentPathKey += currentPathKey.length > 0 ? `/${dir}` : dir;
+              currentPathDirs.push(dir);
             }
             break;
           }
