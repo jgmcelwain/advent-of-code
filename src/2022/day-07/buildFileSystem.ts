@@ -9,8 +9,8 @@ export type Command = [
 
 function parseCommands(input: string): Command[] {
   const userInputSchema = z.tuple([z.string()]).rest(z.unknown());
-
   const commandOutputSchema = z.string();
+
   const commandSchema = z.tuple([userInputSchema]).rest(commandOutputSchema);
 
   return z.array(commandSchema).parse(
