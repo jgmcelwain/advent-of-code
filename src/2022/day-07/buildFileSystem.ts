@@ -33,7 +33,7 @@ export function buildFileSystem(input: string) {
   let currentPathKey = '';
   let currentPath = fileSystem;
 
-  for (const [[$, args], ...output] of commands) {
+  for (const [[$, ...args], ...output] of commands) {
     switch ($) {
       case 'ls': {
         for (const path of output) {
@@ -51,7 +51,7 @@ export function buildFileSystem(input: string) {
         break;
       }
       case 'cd': {
-        const dir = z.string().parse(args);
+        const dir = z.string().parse(args[0]);
 
         switch (dir) {
           case '/': {
