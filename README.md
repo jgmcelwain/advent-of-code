@@ -11,6 +11,7 @@
 | 5   | [Supply Stacks](https://adventofcode.com/2022/day/5)           | [`src/2022/day-05`](https://github.com/jgmcelwain/advent-of-code/tree/main/src/2022/day-05) |
 | 6   | [Tuning Trouble](https://adventofcode.com/2022/day/6)          | [`src/2022/day-06`](https://github.com/jgmcelwain/advent-of-code/tree/main/src/2022/day-06) |
 | 7   | [No Space Left On Device](https://adventofcode.com/2022/day/7) | [`src/2022/day-07`](https://github.com/jgmcelwain/advent-of-code/tree/main/src/2022/day-07) |
+| 8   | [Treetop Tree House](https://adventofcode.com/2022/day/8)      | [`src/2022/day-08`](https://github.com/jgmcelwain/advent-of-code/tree/main/src/2022/day-08) |
 
 ## Previous Years
 
