@@ -1,3 +1,5 @@
+import { transpose } from '@/lib/transpose';
+
 export function calculateTreeGroupViewingDistance(
   group: number[],
   tree: number,
@@ -16,13 +18,13 @@ export function calculateTreeGroupViewingDistance(
 }
 
 export function getHighestScenicScore(trees: number[][]) {
+  const transposedTrees = transpose(trees);
+
   let highestScenicScore = -Infinity;
 
   for (const [rowIndex, row] of trees.entries()) {
     for (const [colIndex, tree] of row.entries()) {
-      const column = trees
-        .map((row) => row[colIndex])
-        .filter((colTree): colTree is number => colTree !== undefined);
+      const column = transposedTrees[colIndex] ?? [];
 
       const previousInRow = row.slice(0, colIndex).reverse();
       const nextInRow = row.slice(colIndex + 1);

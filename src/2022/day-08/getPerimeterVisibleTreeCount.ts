@@ -1,41 +1,26 @@
+import { transpose } from '@/lib/transpose';
+
 export function getPerimeterVisibleTreeCount(trees: number[][]) {
+  const transposedTrees = transpose(trees);
+
   let visibleTreeCount = 0;
 
   for (const [rowIndex, row] of trees.entries()) {
     for (const [colIndex, tree] of row.entries()) {
+      const column = transposedTrees[colIndex] ?? [];
+
+      const previousInRow = row.slice(0, colIndex);
+      const nextInRow = row.slice(colIndex + 1);
+      const previousInColumn = column.slice(0, rowIndex).reverse();
+      const nextInColumn = column.slice(rowIndex + 1);
+
       if (
-        rowIndex === 0 ||
-        rowIndex === trees.length - 1 ||
-        colIndex === 0 ||
-        colIndex === row.length - 1
+        previousInRow.every((rowTree) => rowTree < tree) ||
+        nextInRow.every((rowTree) => rowTree < tree) ||
+        previousInColumn.every((colTree) => colTree < tree) ||
+        nextInColumn.every((colTree) => colTree < tree)
       ) {
         visibleTreeCount++;
-
-        continue;
-      } else {
-        const previousInRow = row.slice(0, colIndex);
-        const nextInRow = row.slice(colIndex + 1);
-
-        if (
-          previousInRow.every((rowTree) => rowTree < tree) ||
-          nextInRow.every((rowTree) => rowTree < tree)
-        ) {
-          visibleTreeCount++;
-        } else {
-          const column = trees
-            .map((row) => row[colIndex])
-            .filter((colTree): colTree is number => colTree !== undefined);
-
-          const previousInColumn = column.slice(0, rowIndex).reverse();
-          const nextInColumn = column.slice(rowIndex + 1);
-
-          if (
-            previousInColumn.every((colTree) => colTree < tree) ||
-            nextInColumn.every((colTree) => colTree < tree)
-          ) {
-            visibleTreeCount++;
-          }
-        }
       }
     }
   }
