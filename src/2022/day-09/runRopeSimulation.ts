@@ -34,19 +34,19 @@ export function runRopeSimulation(
         if (follow === undefined) {
           switch (direction) {
             case 'U':
-              knot.y += 1;
+              knot.y++;
               break;
 
             case 'D':
-              knot.y -= 1;
+              knot.y--;
               break;
 
             case 'R':
-              knot.x += 1;
+              knot.x++;
               break;
 
             case 'L':
-              knot.x -= 1;
+              knot.x--;
               break;
           }
         }
