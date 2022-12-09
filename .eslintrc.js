@@ -25,6 +25,7 @@ module.exports = {
       },
       rules: {
         '@typescript-eslint/consistent-type-definitions': 'off',
+        '@typescript-eslint/non-nullable-type-assertion-style': 'off',
         'no-throw-literal': 'off',
         '@typescript-eslint/no-throw-literal': 'warn',
         'no-unused-vars': 'off',
