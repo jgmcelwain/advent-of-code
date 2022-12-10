@@ -17,16 +17,16 @@ export function drawInstructionsOutput(instructions: CPUInstruction[]) {
     instructions,
     DISPLAY_HEIGHT * DISPLAY_WIDTH,
     (i, x) => {
-      const spriteX = Math.floor(i % DISPLAY_WIDTH);
-      const spriteY = Math.floor(i / DISPLAY_WIDTH);
+      const cursorX = Math.floor(i % DISPLAY_WIDTH);
+      const cursorY = Math.floor(i / DISPLAY_WIDTH);
 
-      // if x is within one pixel of the center of the sprite we should fill the
-      // center pixel in on the display
-      if (Math.abs(spriteX - x) <= 1) {
-        const displayRow = display[spriteY];
+      // if the cursor is within one pixel of x, the center of the sprite, then
+      // we should fill in the cursor's position on the display.
+      if (Math.abs(cursorX - x) <= 1) {
+        const displayRow = display[cursorY];
 
         if (displayRow !== undefined) {
-          displayRow[spriteX] = PIXEL_FILLED;
+          displayRow[cursorX] = PIXEL_FILLED;
         }
       }
     },
