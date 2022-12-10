@@ -13,6 +13,7 @@
 | 7   | [No Space Left On Device](https://adventofcode.com/2022/day/7) | [`src/2022/day-07`](https://github.com/jgmcelwain/advent-of-code/tree/main/src/2022/day-07) |
 | 8   | [Treetop Tree House](https://adventofcode.com/2022/day/8)      | [`src/2022/day-08`](https://github.com/jgmcelwain/advent-of-code/tree/main/src/2022/day-08) |
 | 9   | [Rope Bridge](https://adventofcode.com/2022/day/9)             | [`src/2022/day-09`](https://github.com/jgmcelwain/advent-of-code/tree/main/src/2022/day-09) |
+| 10  | [Cathode-Ray Tube](https://adventofcode.com/2022/day/10)       | [`src/2022/day-10`](https://github.com/jgmcelwain/advent-of-code/tree/main/src/2022/day-10) |
 
 ## Previous Years
 
