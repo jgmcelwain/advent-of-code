@@ -14,6 +14,7 @@
 | 8   | [Treetop Tree House](https://adventofcode.com/2022/day/8)      | [`src/2022/day-08`](https://github.com/jgmcelwain/advent-of-code/tree/main/src/2022/day-08) |
 | 9   | [Rope Bridge](https://adventofcode.com/2022/day/9)             | [`src/2022/day-09`](https://github.com/jgmcelwain/advent-of-code/tree/main/src/2022/day-09) |
 | 10  | [Cathode-Ray Tube](https://adventofcode.com/2022/day/10)       | [`src/2022/day-10`](https://github.com/jgmcelwain/advent-of-code/tree/main/src/2022/day-10) |
+| 11  | [Monkey in the Middle](https://adventofcode.com/2022/day/11)   | [`src/2022/day-11`](https://github.com/jgmcelwain/advent-of-code/tree/main/src/2022/day-11) |
 
 ## Previous Years
 
