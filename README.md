@@ -2,19 +2,20 @@
 
 ## 2022
 
-| Day | Puzzle                                                         | Solution                                                                                    |
-| :-- | :------------------------------------------------------------- | :------------------------------------------------------------------------------------------ |
-| 1   | [Calorie Counting](https://adventofcode.com/2022/day/1)        | [`src/2022/day-01`](https://github.com/jgmcelwain/advent-of-code/tree/main/src/2022/day-01) |
-| 2   | [Rock Paper Scissors](https://adventofcode.com/2022/day/2)     | [`src/2022/day-02`](https://github.com/jgmcelwain/advent-of-code/tree/main/src/2022/day-02) |
-| 3   | [Rucksack Reorganization](https://adventofcode.com/2022/day/3) | [`src/2022/day-03`](https://github.com/jgmcelwain/advent-of-code/tree/main/src/2022/day-03) |
-| 4   | [Camp Cleanup](https://adventofcode.com/2022/day/4)            | [`src/2022/day-04`](https://github.com/jgmcelwain/advent-of-code/tree/main/src/2022/day-04) |
-| 5   | [Supply Stacks](https://adventofcode.com/2022/day/5)           | [`src/2022/day-05`](https://github.com/jgmcelwain/advent-of-code/tree/main/src/2022/day-05) |
-| 6   | [Tuning Trouble](https://adventofcode.com/2022/day/6)          | [`src/2022/day-06`](https://github.com/jgmcelwain/advent-of-code/tree/main/src/2022/day-06) |
-| 7   | [No Space Left On Device](https://adventofcode.com/2022/day/7) | [`src/2022/day-07`](https://github.com/jgmcelwain/advent-of-code/tree/main/src/2022/day-07) |
-| 8   | [Treetop Tree House](https://adventofcode.com/2022/day/8)      | [`src/2022/day-08`](https://github.com/jgmcelwain/advent-of-code/tree/main/src/2022/day-08) |
-| 9   | [Rope Bridge](https://adventofcode.com/2022/day/9)             | [`src/2022/day-09`](https://github.com/jgmcelwain/advent-of-code/tree/main/src/2022/day-09) |
-| 10  | [Cathode-Ray Tube](https://adventofcode.com/2022/day/10)       | [`src/2022/day-10`](https://github.com/jgmcelwain/advent-of-code/tree/main/src/2022/day-10) |
-| 11  | [Monkey in the Middle](https://adventofcode.com/2022/day/11)   | [`src/2022/day-11`](https://github.com/jgmcelwain/advent-of-code/tree/main/src/2022/day-11) |
+| Day | Puzzle                                                          | Solution                                                                                    |
+| :-- | :-------------------------------------------------------------- | :------------------------------------------------------------------------------------------ |
+| 1   | [Calorie Counting](https://adventofcode.com/2022/day/1)         | [`src/2022/day-01`](https://github.com/jgmcelwain/advent-of-code/tree/main/src/2022/day-01) |
+| 2   | [Rock Paper Scissors](https://adventofcode.com/2022/day/2)      | [`src/2022/day-02`](https://github.com/jgmcelwain/advent-of-code/tree/main/src/2022/day-02) |
+| 3   | [Rucksack Reorganization](https://adventofcode.com/2022/day/3)  | [`src/2022/day-03`](https://github.com/jgmcelwain/advent-of-code/tree/main/src/2022/day-03) |
+| 4   | [Camp Cleanup](https://adventofcode.com/2022/day/4)             | [`src/2022/day-04`](https://github.com/jgmcelwain/advent-of-code/tree/main/src/2022/day-04) |
+| 5   | [Supply Stacks](https://adventofcode.com/2022/day/5)            | [`src/2022/day-05`](https://github.com/jgmcelwain/advent-of-code/tree/main/src/2022/day-05) |
+| 6   | [Tuning Trouble](https://adventofcode.com/2022/day/6)           | [`src/2022/day-06`](https://github.com/jgmcelwain/advent-of-code/tree/main/src/2022/day-06) |
+| 7   | [No Space Left On Device](https://adventofcode.com/2022/day/7)  | [`src/2022/day-07`](https://github.com/jgmcelwain/advent-of-code/tree/main/src/2022/day-07) |
+| 8   | [Treetop Tree House](https://adventofcode.com/2022/day/8)       | [`src/2022/day-08`](https://github.com/jgmcelwain/advent-of-code/tree/main/src/2022/day-08) |
+| 9   | [Rope Bridge](https://adventofcode.com/2022/day/9)              | [`src/2022/day-09`](https://github.com/jgmcelwain/advent-of-code/tree/main/src/2022/day-09) |
+| 10  | [Cathode-Ray Tube](https://adventofcode.com/2022/day/10)        | [`src/2022/day-10`](https://github.com/jgmcelwain/advent-of-code/tree/main/src/2022/day-10) |
+| 11  | [Monkey in the Middle](https://adventofcode.com/2022/day/11)    | [`src/2022/day-11`](https://github.com/jgmcelwain/advent-of-code/tree/main/src/2022/day-11) |
+| 12  | [Hill Climbing Algorithm](https://adventofcode.com/2022/day/12) | [`src/2022/day-12`](https://github.com/jgmcelwain/advent-of-code/tree/main/src/2022/day-12) |
 
 ## Previous Years
 
