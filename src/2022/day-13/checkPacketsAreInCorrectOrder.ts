@@ -71,8 +71,10 @@ export function checkPacketsAreInCorrectOrder(
     return false;
   }
 
-  // if both packets have run out of data then we can't base the order on the
-  // data we have so we should return undefined
+  // if both packets have run out of data then we should just return undefined
+  // based on the input data this should only happen when recursively checking
+  // packets, so would trigger the next iteration of the while loop that
+  // called this instance of the function
   else {
     return undefined;
   }
