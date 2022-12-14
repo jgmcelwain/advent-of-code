@@ -16,7 +16,8 @@
 | 10  | [Cathode-Ray Tube](https://adventofcode.com/2022/day/10)        | [`src/2022/day-10`](https://github.com/jgmcelwain/advent-of-code/tree/main/src/2022/day-10) |
 | 11  | [Monkey in the Middle](https://adventofcode.com/2022/day/11)    | [`src/2022/day-11`](https://github.com/jgmcelwain/advent-of-code/tree/main/src/2022/day-11) |
 | 12  | [Hill Climbing Algorithm](https://adventofcode.com/2022/day/12) | [`src/2022/day-12`](https://github.com/jgmcelwain/advent-of-code/tree/main/src/2022/day-12) |
-| 13  | [DistressSignal](https://adventofcode.com/2022/day/13)          | [`src/2022/day-13`](https://github.com/jgmcelwain/advent-of-code/tree/main/src/2022/day-13) |
+| 13  | [Distress Signal](https://adventofcode.com/2022/day/13)         | [`src/2022/day-13`](https://github.com/jgmcelwain/advent-of-code/tree/main/src/2022/day-13) |
+| 14  | [Regolith Reservoir](https://adventofcode.com/2022/day/14)      | [`src/2022/day-14`](https://github.com/jgmcelwain/advent-of-code/tree/main/src/2022/day-14) |
 
 ## Previous Years
 
