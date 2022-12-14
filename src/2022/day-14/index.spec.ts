@@ -1,4 +1,4 @@
-import type { CavernBounds, PointKey } from '.';
+import type { CavernBounds, CoordinateKey } from '.';
 import { particlesUntilOneFallsOutOfBounds } from './particlesUntilOneFallsOutOfBounds';
 import { particlesUntilOneReachesEntryPoint } from './particlesUntilOneReachesEntryPoint';
 
@@ -6,7 +6,7 @@ const testBounds: CavernBounds = {
   x: { min: 494, max: 503 },
   y: { min: Infinity, max: 9 },
 };
-const testWalls = new Set<PointKey>([
+const testWalls = new Set<CoordinateKey>([
   '498,4',
   '498,5',
   '498,6',

@@ -1,12 +1,12 @@
-import type { CavernBounds, PointKey } from './index';
+import type { CavernBounds, CoordinateKey } from './index';
 
 export function particlesUntilOneFallsOutOfBounds(
-  wallPoints: Set<PointKey>,
+  wallPoints: Set<CoordinateKey>,
   bounds: CavernBounds,
   entryX: number,
   entryY: number,
 ) {
-  const sandPoints = new Set<PointKey>();
+  const sandPoints = new Set<CoordinateKey>();
 
   sandGenerationLoop: while (true) {
     const sandParticle = { x: entryX, y: entryY };
