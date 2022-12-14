@@ -58,8 +58,6 @@ async function main() {
     }),
   );
 
-  console.log(matrix);
-
   void runDay(
     2022,
     12,
