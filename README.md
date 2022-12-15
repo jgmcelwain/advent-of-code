@@ -18,6 +18,7 @@
 | 12  | [Hill Climbing Algorithm](https://adventofcode.com/2022/day/12) | [`src/2022/day-12`](https://github.com/jgmcelwain/advent-of-code/tree/main/src/2022/day-12) |
 | 13  | [Distress Signal](https://adventofcode.com/2022/day/13)         | [`src/2022/day-13`](https://github.com/jgmcelwain/advent-of-code/tree/main/src/2022/day-13) |
 | 14  | [Regolith Reservoir](https://adventofcode.com/2022/day/14)      | [`src/2022/day-14`](https://github.com/jgmcelwain/advent-of-code/tree/main/src/2022/day-14) |
+| 15  | [Beacon Exclusion Zone](https://adventofcode.com/2022/day/15)   | [`src/2022/day-15`](https://github.com/jgmcelwain/advent-of-code/tree/main/src/2022/day-15) |
 
 ## Previous Years
 
