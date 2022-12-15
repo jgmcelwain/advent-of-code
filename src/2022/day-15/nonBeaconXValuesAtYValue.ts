@@ -6,34 +6,28 @@ export function nonBeaconXValuesAtYValue(
   scanResults: ScanResult[],
   targetYValue: number,
 ) {
-  const ranges: XRange[] = scanResults
-    .map(({ sensorLocation, beaconLocation }) => {
-      const distanceFromSensorToBeacon =
-        Math.abs(sensorLocation.x - beaconLocation.x) +
-        Math.abs(sensorLocation.y - beaconLocation.y);
+  const ranges: XRange[] = [];
 
-      const distanceFromSensorToTargetY = Math.abs(
-        sensorLocation.y - targetYValue,
-      );
+  for (const { sensorLocation, distanceFromSensorToBeacon } of scanResults) {
+    const distanceFromSensorToTargetY = Math.abs(
+      sensorLocation.y - targetYValue,
+    );
 
-      // if the beacon is further from the sensor than the target y value then
-      // there cannot be a beacon at the target y value for any x value that
-      // the sensor would scan
-      if (distanceFromSensorToBeacon > distanceFromSensorToTargetY) {
-        // x and y scan ranges are the same so we can use the difference to find
-        // the x scan range that is "remaining" at this y value
-        const scanRadiusAtYValue =
-          distanceFromSensorToBeacon - distanceFromSensorToTargetY;
+    // if the beacon is further from the sensor than the target y value then
+    // there cannot be a beacon at the target y value for any x value that
+    // the sensor would scan
+    if (distanceFromSensorToBeacon > distanceFromSensorToTargetY) {
+      // x and y scan ranges are the same so we can use the difference to find
+      // the x scan range that is "remaining" at this y value
+      const scanRadiusAtYValue =
+        distanceFromSensorToBeacon - distanceFromSensorToTargetY;
 
-        return [
-          sensorLocation.x - scanRadiusAtYValue,
-          sensorLocation.x + scanRadiusAtYValue,
-        ];
-      } else {
-        return null;
-      }
-    })
-    .filter((range): range is XRange => range !== null);
+      ranges.push([
+        sensorLocation.x - scanRadiusAtYValue,
+        sensorLocation.x + scanRadiusAtYValue,
+      ]);
+    }
+  }
 
   const xValuesThatAreNotBeacons = new Set<number>();
   for (const [start, end] of ranges) {

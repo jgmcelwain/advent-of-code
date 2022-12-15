@@ -6,11 +6,12 @@ import { nonBeaconXValuesAtYValue } from './nonBeaconXValuesAtYValue';
 const scanResultSchema = z.object({
   sensorLocation: z.object({ x: z.number(), y: z.number() }),
   beaconLocation: z.object({ x: z.number(), y: z.number() }),
+  distanceFromSensorToBeacon: z.number(),
 });
 export type ScanResult = z.infer<typeof scanResultSchema>;
 
 function partOne(scanResults: ScanResult[]) {
-  const result = nonBeaconXValuesAtYValue(scanResults, 2000000);
+  const result = nonBeaconXValuesAtYValue(scanResults, 2_000_000);
 
   return result.size;
 }
@@ -38,15 +39,17 @@ async function main() {
 
       const sensorLocation = { x: sensor[0], y: sensor[1] };
       const beaconLocation = { x: beacon[0], y: beacon[1] };
+      const distanceFromSensorToBeacon =
+        Math.abs(sensorLocation.x - beaconLocation.x) +
+        Math.abs(sensorLocation.y - beaconLocation.y);
 
       return {
         sensorLocation,
         beaconLocation,
+        distanceFromSensorToBeacon,
       };
     }),
   );
-
-  console.log(scanResults);
 
   void runDay(
     2022,
