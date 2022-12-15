@@ -1,6 +1,8 @@
 import { getInput } from '@/lib/getInput';
 import { runDay } from '@/lib/runDay';
 import { z } from 'zod';
+import { findDistressBeacon } from './findDistressBeacon';
+import { getManhattanDistance } from './getManhattanDistance';
 import { nonBeaconXValuesAtYValue } from './nonBeaconXValuesAtYValue';
 
 const scanResultSchema = z.object({
@@ -17,7 +19,12 @@ function partOne(scanResults: ScanResult[]) {
 }
 
 function partTwo(scanResults: ScanResult[]) {
-  return null;
+  const MAX_X = 4_000_000;
+  const MAX_Y = 4_000_000;
+
+  const result = findDistressBeacon(scanResults, 0, 0, MAX_X, MAX_Y);
+
+  return result.x * 4_000_000 + result.y;
 }
 
 async function main() {
@@ -39,9 +46,12 @@ async function main() {
 
       const sensorLocation = { x: sensor[0], y: sensor[1] };
       const beaconLocation = { x: beacon[0], y: beacon[1] };
-      const distanceFromSensorToBeacon =
-        Math.abs(sensorLocation.x - beaconLocation.x) +
-        Math.abs(sensorLocation.y - beaconLocation.y);
+      const distanceFromSensorToBeacon = getManhattanDistance(
+        sensorLocation.x,
+        sensorLocation.y,
+        beaconLocation.x,
+        beaconLocation.y,
+      );
 
       return {
         sensorLocation,
